@@ -30,7 +30,7 @@ class Router {
 
 		} elseif($request === '/photos') {
 
-			header('Location: http://cellsites.nz/photos/1');
+			return new PhotosPage(1);
 
 		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})$:',$request,$matches)) {
 
@@ -58,7 +58,15 @@ class Router {
 
 		} elseif(preg_match(':^/photos/([1-9]\d*)$:',$request,$matches)) {
 
-			return new PhotosPage((int)$matches[1]);
+			if((int)$matches[1] === 1) {
+
+				header('Location: http://cellsites.nz/photos');
+
+			} else {
+
+				return new PhotosPage((int)$matches[1]);
+
+			}
 
 		} elseif(preg_match(':^/region/([1-9]\d*)$:',$request,$matches)) {
 
