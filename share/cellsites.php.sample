@@ -1,0 +1,7 @@
+<?php
+
+const CELLSITES_GOOGLE_MAPS_API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+const CELLSITES_PHOTOS_ORIGNALS_DIR = '/usr/home/jsmith/Photos/Cell Sites/';
+const CELLSITES_PHOTOS_TARGET_DIR = '/usr/local/www/cellsites.nz/web/img/photos/';
+
+?>

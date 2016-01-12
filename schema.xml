@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="cellsitesnz" defaultIdMethod="native" namespace="CellSites\Database">
+	<table name="area_lte" phpName="AreaLTE">
+		<column name="country_id" type="integer" required="true" primaryKey="true"/>
+		<column name="network_id" type="integer" required="true" primaryKey="true"/>
+		<column name="id" type="integer" required="true" primaryKey="true"/>
+		<column name="name" type="varchar" size="255" required="true" primaryString="true"/>
+		<column name="notes" type="longvarchar" required="false"/>
+		<foreign-key foreignTable="country">
+			<reference local="country_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="network">
+			<reference local="country_id" foreign="country_id"/>
+			<reference local="network_id" foreign="id"/>
+		</foreign-key>
+		<unique name="unique_name">
+			<unique-column name="country_id"/>
+			<unique-column name="network_id"/>
+			<unique-column name="name"/>
+		</unique>
+	</table>
+	<table name="area_umts" phpName="AreaUMTS">
+		<column name="country_id" type="integer" required="true" primaryKey="true"/>
+		<column name="network_id" type="integer" required="true" primaryKey="true"/>
+		<column name="id" type="integer" required="true" primaryKey="true"/>
+		<column name="name" type="varchar" size="255" required="true" primaryString="true"/>
+		<foreign-key foreignTable="country">
+			<reference local="country_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="network">
+			<reference local="country_id" foreign="country_id"/>
+			<reference local="network_id" foreign="id"/>
+		</foreign-key>
+		<unique name="unique_name">
+			<unique-column name="country_id"/>
+			<unique-column name="network_id"/>
+			<unique-column name="name"/>
+		</unique>
+	</table>
+	<table name="cell_lte" phpName="CellLTE">
+		<column name="country_id" type="integer" required="true" primaryKey="true"/>
+		<column name="network_id" type="integer" required="true" primaryKey="true"/>
+		<column name="id" type="integer" required="true" primaryKey="true"/>
+		<column name="area_id" type="integer" required="true"/>
+		<column name="location_id" type="integer" required="false"/>
+		<column name="earfcn_id" type="integer" requied="false"/>
+		<column name="physical_cell_id" type="integer" required="false"/>
+		<column name="last_seen" type="date" required="false"/>
+		<column name="notes" type="longvarchar" required="false"/>
+		<foreign-key foreignTable="area_lte" phpName="Area" refPhpName="Cell">
+			<reference local="country_id" foreign="country_id"/>
+			<reference local="network_id" foreign="network_id"/>
+			<reference local="area_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="country">
+			<reference local="country_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="earfcn">
+			<reference local="earfcn_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="location">
+			<reference local="location_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="network">
+			<reference local="country_id" foreign="country_id"/>
+			<reference local="network_id" foreign="id"/>
+		</foreign-key>
+	</table>
+	<table name="cell_umts" phpName="CellUMTS">
+		<column name="country_id" type="integer" required="true" primaryKey="true"/>
+		<column name="network_id" type="integer" required="true" primaryKey="true"/>
+		<column name="id" type="integer" required="true" primaryKey="true"/>
+		<column name="area_id" type="integer" required="true"/>
+		<column name="location_id" type="integer" required="false"/>
+		<column name="frequency_id" type="integer" requied="false"/>
+		<column name="scrambling_code" type="integer" required="false"/>
+		<column name="last_seen" type="date" required="false"/>
+		<column name="notes" type="longvarchar" required="false"/>
+		<foreign-key foreignTable="area_umts" phpName="Area" refPhpName="Cell">
+			<reference local="country_id" foreign="country_id"/>
+			<reference local="network_id" foreign="network_id"/>
+			<reference local="area_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="country">
+			<reference local="country_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="frequency_umts" phpName="Frequency">
+			<reference local="frequency_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="location">
+			<reference local="location_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="network">
+			<reference local="country_id" foreign="country_id"/>
+			<reference local="network_id" foreign="id"/>
+		</foreign-key>
+	</table>
+	<table name="coordinates_source">
+		<column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true"/>
+		<column name="name" type="varchar" size="255" required="true"/>
+		<unique name="unique_name">
+			<unique-column name="name"/>
+		</unique>
+	</table>
+	<table name="country">
+		<column name="id" type="integer" required="true" primaryKey="true"/>
+		<column name="name" type="varchar" size="255" required="true" primaryString="true"/>
+	</table>
+	<table name="earfcn" phpName="EARFCN">
+		<column name="id" type="integer" required="true" primaryKey="true"/>
+		<column name="band_id" type="integer" required="true"/>
+	</table>
+	<table name="frequency_umts" phpName="FrequencyUMTS">
+		<column name="id" type="integer" required="true" primaryKey="true"/>
+		<column name="band_id" type="integer" required="true"/>
+	</table>
+	<table name="location">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+		<column name="region_id" type="integer" required="false"/>
+		<column name="name" type="varchar" size="255" required="true" primaryString="true"/>
+		<column name="latitude" type="double" required="true"/>
+		<column name="longitude" type="double" required="true"/>
+		<column name="coordinates_source_id" type="integer" required="false"/>
+		<column name="notes" type="longvarchar" required="false"/>
+		<foreign-key foreignTable="region">
+			<reference local="region_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="coordinates_source">
+			<reference local="coordinates_source_id" foreign="id"/>
+		</foreign-key>
+		<unique name="unique_name">
+			<unique-column name="name"/>
+		</unique>
+	</table>
+	<table name="network">
+		<column name="country_id" type="integer" required="true" primaryKey="true"/>
+		<column name="id" type="integer" required="true" primaryKey="true"/>
+		<column name="name" type="varchar" size="255" required="true" primaryString="true"/>
+		<foreign-key foreignTable="country">
+			<reference local="country_id" foreign="id"/>
+		</foreign-key>
+	</table>
+	<table name="photo">
+		<column name="id" type="integer" required="true" primaryKey="true"/>
+		<column name="hash" type="varchar" required="true"/>
+		<column name="taken" type="timestamp" required="false"/>
+		<column name="orientationOverride" type="integer" required="false"/>
+		<column name="visible" type="boolean" required="true"/>
+		<unique>
+			<unique-column name="hash"/>
+		</unique>
+	</table>
+	<table name="photo_location" isCrossRef="true">
+		<column name="photo_id" type="integer" required="true" primaryKey="true"/>
+		<column name="location_id" type="integer" required="true" primaryKey="true"/>
+		<foreign-key foreignTable="location">
+			<reference local="location_id" foreign="id"/>
+		</foreign-key>
+		<foreign-key foreignTable="photo">
+			<reference local="photo_id" foreign="id"/>
+		</foreign-key>
+	</table>
+	<table name="region">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+		<column name="name" type="varchar" required="true" primaryString="true"/>
+		<column name="geojson" phpName="GeoJSON" type="varchar" required="false"/>
+		<behavior name="nested_set"/>
+		<unique>
+			<unique-column name="name"/>
+		</unique>
+	</table>
+</database>
