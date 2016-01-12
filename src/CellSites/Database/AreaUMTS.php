@@ -20,7 +20,7 @@ class AreaUMTS extends BaseAreaUMTS {
 
 	public function getURL() {
 
-		return('http://cellsites.nz/' . $this->getCountryID() . '/' . sprintf('%02d',$this->getNetworkID()) . '/ura-' . $this->getID());
+		return('/' . $this->getCountryID() . '/' . sprintf('%02d',$this->getNetworkID()) . '/ura-' . $this->getID());
 
 	}
 

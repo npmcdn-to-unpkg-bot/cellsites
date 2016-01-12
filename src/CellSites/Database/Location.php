@@ -8,7 +8,7 @@ class Location extends BaseLocation {
 
 	public function getURL() {
 
-		return(sprintf('http://cellsites.nz/location/%d',$this->getID()));
+		return(sprintf('/location/%d',$this->getID()));
 
 	}
 
