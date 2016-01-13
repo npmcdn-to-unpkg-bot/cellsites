@@ -74,41 +74,12 @@ class HomePage extends Page {
 
 		} else {
 
-			echo('<p class="alert alert-info">Maps of cell site locations are avaliable below for each local board in Auckland as well as some regional coucils outside Auckland. You can also view a <a href="/map" class="alert-link">map of cell site locations in all regions</a>.</p>' . PHP_EOL);
+			echo('<p class="alert alert-info">Maps of cell site locations are avaliable below, grouped by regions. You can also view a <a href="/map" class="alert-link">map of cell site locations in all regions</a>.</p>' . PHP_EOL);
 			echo('<p class="text-muted"><b>Note:</b> Numbers in brackets show the number of cell site locations in that region.</p>' . PHP_EOL);
-
-			foreach($this->regionsRoot->getChildren() as $thisRegion) {
-
-				echo('<ul>' . PHP_EOL);
-
-				foreach($thisRegion->getChildren() as $thisSubRegion) {
-
-					if($thisSubRegion->countLocations() > 0) {
-
-						echo('<li><a href="' . $thisSubRegion->getURL() . '">' . $thisSubRegion . '</a> (' . $thisSubRegion->countLocations() . ')');
-
-					} else {
-
-						echo('<li>' . $thisSubRegion . PHP_EOL);
-
-					}
-
-					echo('<ul>' . PHP_EOL);
-
-					foreach($thisSubRegion->getChildren() as $thisSubSubRegion) {
-
-						echo('<li><a href="' . $thisSubSubRegion->getURL() . '">' . $thisSubSubRegion . '</a> (' . $thisSubSubRegion->countLocations() . ')</li>' . PHP_EOL);
-
-					}
-
-					echo('</ul>' . PHP_EOL);
-					echo( '</li>' . PHP_EOL);
-
-				}
-
-				echo('</ul>' . PHP_EOL);
-
-			}
+            
+            echo('<ul>' . PHP_EOL);
+            $this->regionsRecursive($this->regionsRoot);
+            echo('</ul>' . PHP_EOL);
 
 		}
 
@@ -116,6 +87,38 @@ class HomePage extends Page {
 		echo('</div>' . PHP_EOL);
 
 	}
+    
+    private function regionsRecursive($region) {
+        
+        echo('<li>');
+        
+        if($region->countLocations() === 0) {
+            
+            echo($region->getName());
+            
+        } else {
+            
+            echo('<a href="' . $region->getURL() . '">' . $region . '</a>' . ' (' . $region->countLocations() . ')');
+            
+        }
+        
+        if($region->hasChildren() === TRUE) {
+        
+            echo(PHP_EOL . '<ul>' . PHP_EOL);
+        
+            foreach($region->getChildren() as $thisChild) {
+            
+                $this->regionsRecursive($thisChild);
+            
+            }
+            
+            echo('</ul>' . PHP_EOL);
+            
+        }
+        
+        echo('</li>' . PHP_EOL);
+        
+    }
 
 }
 
