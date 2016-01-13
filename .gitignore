@@ -1,6 +1,8 @@
 cellsites.php
 composer.lock
+composer.phar
 generated-conf/
 generated-sql/
 propel.xml
 vendor/
+/nbproject/private/
