@@ -11,6 +11,10 @@ This is the repository for the *Cell Sites in New Zealand* website located at ht
 5. [Propel](http://propelorm.org/) (appropirate version installed automatically via Composer)
 4. A Propel-compatiable database ([MySQL](http://dev.mysql.com/) 5.6.x recommended, runs on 5.6.27)
 
+## Optional
+
+1. ImageMagick is a requirement for the included script that automatically generates web-friendly photos (with watermark) and thumbnails from original photos.
+
 ## Install instructions
 
 These instructions assume you have installed FreeBSD, Apache, MySQL, PHP and Composer already.

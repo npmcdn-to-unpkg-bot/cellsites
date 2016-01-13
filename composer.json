@@ -1,11 +1,13 @@
 {
 	"name": "jamespole/cellsites",
 	"require": {
-		"ext-imagick": "*",
 		"jmikola/geojson": "^1.0",
-		"php": ">=5.6.0",
+		"php": ">=5.5.0",
 		"propel/propel": "~2.0@dev",
 		"twbs/bootstrap": "3.3.5"
+	},
+	"suggest": {
+		"ext-imagick": "Allows usage of included script which generates watermarked photos and thumbnails"
 	},
 	"autoload": {
 		"psr-4": {"CellSites\\": "src/CellSites/"}
