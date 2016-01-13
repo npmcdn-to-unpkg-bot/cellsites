@@ -37,45 +37,55 @@ class PhotosPage extends Page {
 
 	protected function body() {
 
-		$photoPager = $this->query->paginate($this->page,40);
 
 		echo('<div class="well">' . PHP_EOL);
 		echo('<h1>Photos</h1>' . PHP_EOL);
 
-		$this->photos($photoPager->getResults());
+		if($this->query->count() === 0) {
 
-		echo('<nav>' . PHP_EOL);
-		echo('<ul class="pagination">' . PHP_EOL);
-
-		if($this->page === 1) {
-
-			echo('<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
+			echo('<p class="alert alert-warning">There were no photos in the database to display here.</p>' . PHP_EOL);
 
 		} else {
 
-			echo('<li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
+			$photoPager = $this->query->paginate($this->page,40);
 
-		}
+			$this->photos($photoPager->getResults());
 
-		for($i = 1; $i <= $photoPager->getLastPage(); $i++) {
+			echo('<nav>' . PHP_EOL);
+			echo('<ul class="pagination">' . PHP_EOL);
 
-			if($this->page === $i) {
+			if($this->page === 1) {
 
-				echo('<li class="active"><a href="/photos/' . $i . '">' . $i . ' <span class="sr-only">(current)</span></a></li>' . PHP_EOL);
+				echo('<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
 
 			} else {
 
-				echo('<li><a href="/photos/' . $i . '">' . $i . '</a></li>' . PHP_EOL);
+				echo('<li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
 
 			}
 
+			for($i = 1; $i <= $photoPager->getLastPage(); $i++) {
+
+				if($this->page === $i) {
+
+					echo('<li class="active"><a href="/photos/' . $i . '">' . $i . ' <span class="sr-only">(current)</span></a></li>' . PHP_EOL);
+
+				} else {
+
+					echo('<li><a href="/photos/' . $i . '">' . $i . '</a></li>' . PHP_EOL);
+
+				}
+
+			}
+
+			echo('<li><a href="/photos/' . ($this->page + 1) . '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>' . PHP_EOL);
+
+			echo('</ul>' . PHP_EOL);
+			echo('</nav>' . PHP_EOL);
+
 		}
 
-		echo('<li><a href="/photos/' . ($this->page + 1) . '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>' . PHP_EOL);
-
-		echo('</ul>
-</nav>' . PHP_EOL);
-		echo('</div>' . PHP_EOL); // end .well
+		echo('</div>' . PHP_EOL);
 
 	}
 

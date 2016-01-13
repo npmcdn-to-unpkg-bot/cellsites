@@ -20,6 +20,13 @@ class MapDiv {
 
 	public function generate() {
 
+		if(defined('CELLSITES_GOOGLE_MAPS_API_KEY') !== true) {
+
+			echo('<p class="alert alert-warning">The Google Maps API key was not defined.</p>' . PHP_EOL);
+			return;
+
+		}
+
 		echo('<div class="well" id="map" style="height: 500px"></div>' . PHP_EOL);
 		echo('<script type="text/javascript">' . PHP_EOL);
 		echo('var map;' . PHP_EOL);

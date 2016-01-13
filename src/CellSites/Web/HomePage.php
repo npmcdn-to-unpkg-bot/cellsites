@@ -33,20 +33,30 @@ class HomePage extends Page {
 		echo('<div class="col-md-6">' . PHP_EOL);
 		echo('<div class="well">' . PHP_EOL);
 		echo('<h1>Browse by network</h1>' . PHP_EOL);
-		echo('<p class="alert alert-info">Information about cell identities are avaliable below for selected networks. This is more of interest to geeks.</p>' . PHP_EOL);
-		echo('<ul class="networkList">' . PHP_EOL);
 
-		foreach($this->networks as $thisNetwork) {
+		if($this->networks->count() === 0) {
 
-			if($thisNetwork->countCellLTEs() > 0) {
+			echo('<p class="alert alert-warning">There were no networks in the database to display here.</p>' . PHP_EOL);
 
-				echo('<li><a href="' . $thisNetwork->getURL() . '">' . $thisNetwork . '</a></li>' . PHP_EOL);
+		} else {
+
+			echo('<p class="alert alert-info">Information about cell identities are avaliable below for selected networks. This is more of interest to geeks.</p>' . PHP_EOL);
+			echo('<ul class="networkList">' . PHP_EOL);
+
+			foreach($this->networks as $thisNetwork) {
+
+				if($thisNetwork->countCellLTEs() > 0) {
+
+					echo('<li><a href="' . $thisNetwork->getURL() . '">' . $thisNetwork . '</a></li>' . PHP_EOL);
+
+				}
+
+				echo('</ul>' . PHP_EOL);
 
 			}
 
 		}
 
-		echo('</ul>' . PHP_EOL);
 		echo('</div>' . PHP_EOL);
 		echo('</div>' . PHP_EOL);
 
@@ -57,42 +67,50 @@ class HomePage extends Page {
 		echo('<div class="col-md-6">' . PHP_EOL);
 		echo('<div class="well">' . PHP_EOL);
 		echo('<h1>Browse by region</h1>' . PHP_EOL);
-		echo('<p class="alert alert-info">Maps of cell site locations are avaliable below for each local board in Auckland as well as some regional coucils outside Auckland. You can also view a <a href="/map" class="alert-link">map of cell site locations in all regions</a>.</p>' . PHP_EOL);
-		echo('<p class="text-muted"><b>Note:</b> Numbers in brackets show the number of cell site locations in that region.</p>' . PHP_EOL);
 
-		foreach($this->regionsRoot->getChildren() as $thisRegion) {
+		if($this->regionsRoot === null) {
 
-			echo('<ul>' . PHP_EOL);
+			echo('<p class="alert alert-warning">There were no regions in the database to display here.</p>' . PHP_EOL);
 
-			foreach($thisRegion->getChildren() as $thisSubRegion) {
+		} else {
 
-				if($thisSubRegion->countLocations() > 0) {
+			echo('<p class="alert alert-info">Maps of cell site locations are avaliable below for each local board in Auckland as well as some regional coucils outside Auckland. You can also view a <a href="/map" class="alert-link">map of cell site locations in all regions</a>.</p>' . PHP_EOL);
+			echo('<p class="text-muted"><b>Note:</b> Numbers in brackets show the number of cell site locations in that region.</p>' . PHP_EOL);
 
-					echo('<li><a href="' . $thisSubRegion->getURL() . '">' . $thisSubRegion . '</a> (' . $thisSubRegion->countLocations() . ')');
-
-				} else {
-
-					echo('<li>' . $thisSubRegion . PHP_EOL);
-
-				}
+			foreach($this->regionsRoot->getChildren() as $thisRegion) {
 
 				echo('<ul>' . PHP_EOL);
 
-				foreach($thisSubRegion->getChildren() as $thisSubSubRegion) {
+				foreach($thisRegion->getChildren() as $thisSubRegion) {
 
-					echo('<li><a href="' . $thisSubSubRegion->getURL() . '">' . $thisSubSubRegion . '</a> (' . $thisSubSubRegion->countLocations() . ')</li>' . PHP_EOL);
+					if($thisSubRegion->countLocations() > 0) {
+
+						echo('<li><a href="' . $thisSubRegion->getURL() . '">' . $thisSubRegion . '</a> (' . $thisSubRegion->countLocations() . ')');
+
+					} else {
+
+						echo('<li>' . $thisSubRegion . PHP_EOL);
+
+					}
+
+					echo('<ul>' . PHP_EOL);
+
+					foreach($thisSubRegion->getChildren() as $thisSubSubRegion) {
+
+						echo('<li><a href="' . $thisSubSubRegion->getURL() . '">' . $thisSubSubRegion . '</a> (' . $thisSubSubRegion->countLocations() . ')</li>' . PHP_EOL);
+
+					}
+
+					echo('</ul>' . PHP_EOL);
+					echo( '</li>' . PHP_EOL);
 
 				}
 
 				echo('</ul>' . PHP_EOL);
-				echo( '</li>' . PHP_EOL);
 
 			}
 
-			echo('</ul>' . PHP_EOL);
-
 		}
-
 
 		echo('</div>' . PHP_EOL);
 		echo('</div>' . PHP_EOL);
