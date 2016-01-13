@@ -132,10 +132,8 @@ abstract class Page {
 		echo('<div class="collapse navbar-collapse" id="navbar-collapse">' . PHP_EOL);
 		echo('<ul class="nav navbar-nav">' . PHP_EOL);
 
-		$items[1] = array('name' => 'Introduction', 'url' => '/intro');
-		$items[2] = array('name' => 'Map', 'url' => '/map');
-		$items[3] = array('name' => 'Photos', 'url' => '/photos');
-		$items[4] = array('name' => 'Band plan', 'url' => '/band-plan');
+		$items[] = array('name' => 'Map', 'url' => '/map');
+		$items[] = array('name' => 'Photos', 'url' => '/photos');
 
 		foreach($items as $thisItem) {
 

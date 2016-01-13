@@ -12,14 +12,6 @@ class Router {
 
 			return new HomePage;
 
-		} elseif($request === '/band-plan') {
-
-			return new BandPlanPage;
-
-		} elseif($request === '/intro') {
-
-			return new IntroductionPage;
-
 		} elseif($request === '/locations/geojson') {
 
 			return new LocationsGeoJSON;
