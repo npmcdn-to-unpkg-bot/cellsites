@@ -52,7 +52,7 @@ class Router {
 
 			if((int)$matches[1] === 1) {
 
-				header('Location: http://cellsites.nz/photos');
+				return new ResourceNotFoundPage;
 
 			} else {
 
