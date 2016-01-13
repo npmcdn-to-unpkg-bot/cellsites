@@ -3,6 +3,6 @@ composer.lock
 composer.phar
 generated-conf/
 generated-sql/
+nbproject/
 propel.xml
 vendor/
-/nbproject/private/
