@@ -58,7 +58,17 @@ abstract class Page {
 		echo('<footer>' . PHP_EOL);
 		echo('<div class="well">' . PHP_EOL);
 		echo('<p style="margin:0">');
-		echo('This work is licensed under a ');
+        
+        if(defined('CELLSITES_AUTHOR_NAME') === TRUE && defined('CELLSITES_AUTHOR_EMAIL') === TRUE) {
+            
+            echo('This work is licensed by <a href="mailto:' . CELLSITES_AUTHOR_EMAIL . '">' . CELLSITES_AUTHOR_NAME . '</a> under a ');
+            
+        } else {
+        
+            echo('This work is licensed under a ');
+          
+        }
+        
 		echo('<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.');
 		echo('</p>' . PHP_EOL);
 		echo('</div>' . PHP_EOL);
