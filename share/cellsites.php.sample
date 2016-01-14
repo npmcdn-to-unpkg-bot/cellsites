@@ -2,6 +2,8 @@
 
 const CELLSITES_AUTHOR_EMAIL = 'john.smith@nowhere.com';
 const CELLSITES_AUTHOR_NAME = 'John Smith';
+const CELLSITES_FORMAT_DATE = 'd-M-y';
+const CELLSITES_FORMAT_TIME = 'H:i';
 const CELLSITES_GOOGLE_MAPS_API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 const CELLSITES_PHOTOS_ORIGNALS_DIR = '/usr/home/jsmith/Photos/Cell Sites/';
 const CELLSITES_PHOTOS_TARGET_DIR = '/usr/local/www/cellsites.nz/web/img/photos/';

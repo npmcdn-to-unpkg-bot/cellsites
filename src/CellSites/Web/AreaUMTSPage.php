@@ -108,7 +108,7 @@ class AreaUMTSPage extends Page {
 
 			}
 
-			echo('<td>' . $thisCell->getLastSeen()->format('d-M-y') . '</td>' . PHP_EOL);
+			echo('<td>' . $thisCell->getLastSeen()->format(CELLSITES_FORMAT_DATE) . '</td>' . PHP_EOL);
 
 			if($thisCell->getNotes() === null) {
 
