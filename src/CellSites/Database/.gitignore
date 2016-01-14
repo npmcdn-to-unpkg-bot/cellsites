@@ -14,7 +14,6 @@ FrequencyUMTSQuery.php
 LocationQuery.php
 Map/
 NetworkQuery.php
-Photo.php
 PhotoLocation.php
 PhotoLocationQuery.php
 PhotoQuery.php

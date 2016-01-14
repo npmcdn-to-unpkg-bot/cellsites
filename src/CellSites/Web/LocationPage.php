@@ -48,11 +48,8 @@ class LocationPage extends Page {
 
 			foreach($this->photoQuery->find() as $thisPhoto) {
 
-				echo('<div class="col-xs-6 col-md-3">' . PHP_EOL);
-				echo('<a href="/photo/' . $thisPhoto->getID() . '" class="thumbnail" title="Photo #' . $thisPhoto->getID() . '">' . PHP_EOL);
-				echo('<img src="/img/photos/243x161/' . $thisPhoto->getID() . '.jpg" alt="Photo #' . $thisPhoto->getID() . '">' . PHP_EOL);
-				echo('</a>' . PHP_EOL);
-				echo('</div>' . PHP_EOL); // end .col
+				$thumbnailDiv = new ThumbnailDiv($thisPhoto);
+                $thumbnailDiv->generate();
 
 			}
 
