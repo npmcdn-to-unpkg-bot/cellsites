@@ -119,35 +119,6 @@ class PhotosPage extends Page {
         
     }
 
-	private function photo($thisPhoto) {
-
-			echo('<div class="col-md-3">' . PHP_EOL);
-			echo('<a href="/photo/' . $thisPhoto->getID() . '" class="thumbnail" title="Photo #' . $thisPhoto->getID() . '">' . PHP_EOL);
-			echo('<img src="/img/photos/243x161/' . $thisPhoto->getID() . '.jpg" alt="Photo #' . $thisPhoto->getID() . '">' . PHP_EOL);
-			echo('<div class="caption">' . PHP_EOL);
-
-			if($thisPhoto->getTaken() !== null) {
-
-				echo('<p>#' . $thisPhoto->getID() . ' ' . $thisPhoto->getTaken()->format('d-M-y H:i') . '</p>' . PHP_EOL);
-
-			} else {
-
-				echo('<p class="text-danger" style="margin-bottom: 0px;">No data...</p>' . PHP_EOL);
-
-			}
-
-			foreach($thisPhoto->getLocations() as $thisLocation) {
-
-				echo('<p>' . $thisLocation . '</p>' . PHP_EOL);
-
-			}
-
-			echo('</div>' . PHP_EOL); // end .caption
-			echo('</a>' . PHP_EOL);
-			echo('</div>' . PHP_EOL); // end .col
-
-	}
-
 	private function photos(ObjectCollection $photos) {
 
 		$x = 0;
@@ -159,8 +130,9 @@ class PhotosPage extends Page {
 				echo('<div class="row">'. PHP_EOL);
 
 			}
-
-			$this->photo($thisPhoto);
+            
+            $thumbnailDiv = new ThumbnailDiv($thisPhoto);
+            $thumbnailDiv->generate();
 
 			if($x % 4 === 3) {
 
