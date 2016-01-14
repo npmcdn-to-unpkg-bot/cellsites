@@ -39,7 +39,7 @@ class PhotoPage extends Page {
 
 		echo('<div class="well">' . PHP_EOL);
 		echo('<h1>Photo #' . $this->photo->getID() . '</h1>' . PHP_EOL);
-		echo('<img src="/img/photos/1280x720/' . $this->photo->getID() . '.jpg" class="img-responsive">' . PHP_EOL);
+		echo('<img src="' . $this->photo->getPhotoURL() . '" class="img-responsive">' . PHP_EOL);
 		echo('</div>' . PHP_EOL); // end .well
 		echo('<div class="row">' . PHP_EOL);
 		echo('<div class="col-md-6">' . PHP_EOL);
