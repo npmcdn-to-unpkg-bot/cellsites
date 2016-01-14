@@ -46,48 +46,78 @@ class PhotosPage extends Page {
 			echo('<p class="alert alert-warning">There were no photos in the database to display here.</p>' . PHP_EOL);
 
 		} else {
+            
+            $photoPager = $this->query->paginate($this->page,40);
 
-			$photoPager = $this->query->paginate($this->page,40);
+            $this->photos($photoPager->getResults());
 
-			$this->photos($photoPager->getResults());
-
-			echo('<nav>' . PHP_EOL);
-			echo('<ul class="pagination">' . PHP_EOL);
-
-			if($this->page === 1) {
-
-				echo('<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
-
-			} else {
-
-				echo('<li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
-
-			}
-
-			for($i = 1; $i <= $photoPager->getLastPage(); $i++) {
-
-				if($this->page === $i) {
-
-					echo('<li class="active"><a href="/photos/' . $i . '">' . $i . ' <span class="sr-only">(current)</span></a></li>' . PHP_EOL);
-
-				} else {
-
-					echo('<li><a href="/photos/' . $i . '">' . $i . '</a></li>' . PHP_EOL);
-
-				}
-
-			}
-
-			echo('<li><a href="/photos/' . ($this->page + 1) . '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>' . PHP_EOL);
-
-			echo('</ul>' . PHP_EOL);
-			echo('</nav>' . PHP_EOL);
+			$this->pagination($photoPager);
 
 		}
 
 		echo('</div>' . PHP_EOL);
 
 	}
+    
+    private function pagination(\Propel\Runtime\Util\PropelModelPager $photoPager) {
+        
+        echo('<nav>' . PHP_EOL);
+        echo('<ul class="pagination">' . PHP_EOL);
+
+        if($this->page === 1) {
+
+            echo('<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
+
+        } else {
+            
+            $previousURL = '/photos';
+                
+            if($this->page !== 2) {
+                
+                $previousURL .= '/' . ($this->page - 1);
+                
+            }
+
+            echo('<li><a href="' . $previousURL . '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
+
+        }
+
+        for($i = 1; $i <= $photoPager->getLastPage(); $i++) {
+                
+            $thisURL = '/photos';
+                
+            if($i !== 1) {
+                
+                $thisURL .= '/' . $i;
+                
+            }
+
+            if($this->page === $i) {
+
+                echo('<li class="active"><a href="' . $thisURL . '">' . $i . ' <span class="sr-only">(current)</span></a></li>' . PHP_EOL);
+
+            } else {
+
+                echo('<li><a href="' . $thisURL . '">' . $i . '</a></li>' . PHP_EOL);
+
+            }
+
+        }
+
+        if($this->page !== $photoPager->getLastPage()) {
+            
+            echo('<li><a href="/photos/' . ($this->page + 1) . '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>' . PHP_EOL);
+            
+        } else {
+            
+            echo('<li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>' . PHP_EOL);
+            
+        }
+
+        echo('</ul>' . PHP_EOL);
+        echo('</nav>' . PHP_EOL);
+        
+    }
 
 	private function photo($thisPhoto) {
 

@@ -58,7 +58,17 @@ abstract class Page {
 		echo('<footer>' . PHP_EOL);
 		echo('<div class="well">' . PHP_EOL);
 		echo('<p style="margin:0">');
-		echo('This work is licensed under a ');
+        
+        if(defined('CELLSITES_AUTHOR_NAME') === TRUE && defined('CELLSITES_AUTHOR_EMAIL') === TRUE) {
+            
+            echo('This work is licensed by <a href="mailto:' . CELLSITES_AUTHOR_EMAIL . '">' . CELLSITES_AUTHOR_NAME . '</a> under a ');
+            
+        } else {
+        
+            echo('This work is licensed under a ');
+          
+        }
+        
 		echo('<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.');
 		echo('</p>' . PHP_EOL);
 		echo('</div>' . PHP_EOL);
@@ -132,10 +142,10 @@ abstract class Page {
 		echo('<div class="collapse navbar-collapse" id="navbar-collapse">' . PHP_EOL);
 		echo('<ul class="nav navbar-nav">' . PHP_EOL);
 
-		$items[1] = array('name' => 'Introduction', 'url' => '/intro');
-		$items[2] = array('name' => 'Map', 'url' => '/map');
-		$items[3] = array('name' => 'Photos', 'url' => '/photos');
-		$items[4] = array('name' => 'Band plan', 'url' => '/band-plan');
+		$items[] = array('name' => 'Introduction', 'url' => '/intro');
+		$items[] = array('name' => 'Map', 'url' => '/map');
+		$items[] = array('name' => 'Photos', 'url' => '/photos');
+		$items[] = array('name' => 'Band plan', 'url' => '/band-plan');
 
 		foreach($items as $thisItem) {
 
