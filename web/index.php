@@ -2,10 +2,24 @@
 
 error_reporting(-1);
 
-require(__DIR__ . '/../vendor/autoload.php');
-require(__DIR__ . '/../generated-conf/config.php');
+require('../vendor/autoload.php');
+require('../generated-conf/config.php');
 require('../cellsites.php');
 
-CellSites\Web\Router::getPage()->generate();
+use CellSites\Web\Router;
+use CellSites\Web\InternalServerErrorPage;
+
+try {
+
+    Router::getPage()->generate();
+    exit;
+
+} catch (\Exception $e) {
+
+    $internalServerErrorPage = new InternalServerErrorPage($e);
+    $internalServerErrorPage->generate();
+    exit;
+
+}
 
 ?>
