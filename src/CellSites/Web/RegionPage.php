@@ -48,7 +48,7 @@ class RegionPage extends Page {
 		}
 
 		$maps = array();
-		$maps[] = 'http://cellsites.nz/region/' . $this->region->getID() . '/geojson';
+		$maps[] = $this->region->getGeoJSONURL();
 
 		if($this->region->getGeoJSON() !== null) {
 
