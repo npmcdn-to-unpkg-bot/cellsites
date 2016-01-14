@@ -75,6 +75,7 @@ abstract class Page {
 		echo('</footer>' . PHP_EOL);
 		echo('</div>' . PHP_EOL);
 		echo('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>' . PHP_EOL);
+        echo('<script src="/twbs/js/bootstrap.min.js"></script>' . PHP_EOL);
 		echo('</body>' . PHP_EOL);
 		echo('</html>' . PHP_EOL);
 
