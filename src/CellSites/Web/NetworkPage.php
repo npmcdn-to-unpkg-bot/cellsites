@@ -4,6 +4,7 @@ namespace CellSites\Web;
 
 use CellSites\Database\AreaLTEQuery;
 use CellSites\Database\AreaUMTSQuery;
+use CellSites\Database\Network;
 use CellSites\Database\NetworkQuery;
 
 class NetworkPage extends Page {
@@ -36,27 +37,31 @@ class NetworkPage extends Page {
 
 	private function area($type) {
 
-		if($type === 'UMTS') {
+		if($type === Network::UMTS) {
 
 			$areaName = 'UTRAN Registration Area';
-			$count = $this->network->countCellUMTSs();
 			$query = $this->areaUMTSQuery;
+            $typeName = 'UMTS';
 
-		} elseif($type === 'LTE') {
+		} elseif($type === Network::LTE) {
 
 			$areaName = 'Tracking Area Code';
-			$count = $this->network->countCellLTEs();
 			$query = $this->areaLTEQuery;
+            $typeName = 'LTE';
 
-		}
+		} else {
+            
+            throw new LogicException('Given Network Type was not valid.');
+            
+        }
 
 		echo('<div class="col-md-6">' . PHP_EOL);
 		echo('<div class="well">' . PHP_EOL);
-		echo('<h2 style="margin-top: 0px">' . $type . ' cell identies</h2>' . PHP_EOL);
+		echo('<h2 style="margin-top: 0px">' . $typeName . ' cell identies</h2>' . PHP_EOL);
 
 		if($query->count() === 0) {
 
-			echo('There are no data on ' . $type . ' cell identities for this network.');
+			echo('There are no data on ' . $typeName . ' cell identities for this network.');
 
 		} else {
 
@@ -94,8 +99,8 @@ class NetworkPage extends Page {
 			echo('</tbody>' . PHP_EOL);
 			echo('<tfoot>' . PHP_EOL);
 			echo('<tr>' . PHP_EOL);
-			echo('<td colspan="3">Total number of ' . $type . ' cell identities</td>' . PHP_EOL);
-			echo('<td class="numeric">' . $count  . '</td>' . PHP_EOL);
+			echo('<td colspan="3">Total number of ' . $typeName . ' cell identities</td>' . PHP_EOL);
+			echo('<td class="numeric">' . $this->network->countCells($type)  . '</td>' . PHP_EOL);
 			echo('</tr>' . PHP_EOL);
 			echo('</tfoot>' . PHP_EOL);
 			echo('</table>' . PHP_EOL);
@@ -114,8 +119,8 @@ class NetworkPage extends Page {
 		echo('</div>' . PHP_EOL); // .well
 		echo('<div class="row">' . PHP_EOL);
 
-		$this->area('UMTS');
-		$this->area('LTE');
+		$this->area(Network::UMTS);
+		$this->area(Network::LTE);
 
 		echo('</div>' . PHP_EOL); // .row
 
