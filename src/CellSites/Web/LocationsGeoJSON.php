@@ -6,11 +6,11 @@ use CellSites\Database\LocationQuery;
 
 class LocationsGeoJSON extends GeoJSON {
 
-	public function __construct() {
+    public function __construct() {
 
-		$this->setLocations(LocationQuery::create()->find());
+        parent::__construct(LocationQuery::create()->find());
 
-	}
+    }
 
 }
 

@@ -2,50 +2,59 @@
 
 namespace CellSites\Web;
 
+use CellSites\Database\Location;
 use GeoJson\Feature\Feature;
 use GeoJson\Feature\FeatureCollection;
 use GeoJson\Geometry\Point;
+use Propel\Runtime\Collection\ObjectCollection;
 
 class GeoJSON {
 
-	private $locations = null;
+    private $locations = NULL;
 
-	public function generate() {
+    protected function __construct(ObjectCollection $locations) {
 
-		if($this->locations === null) {
+        if($locations === NULL) {
 
-			throw new Exception;
+            throw new \LogicException('The given ObjectCollection must not be null.');
 
-		}
+        }
 
-		header('Content-type: application/json');
+        if($locations->count() === 0) {
 
-		$features = array();
+            throw new \LogicException('The given ObjectCollection must not be empty.');
 
-		foreach($this->locations as $thisLocation) {
+        }
 
-			$point = new Point(array($thisLocation->getLongitude(),$thisLocation->getLatitude()));
-			$properties = array('name' => $thisLocation->getName());
-			$features[] = new Feature($point,$properties,$thisLocation->getID());
+        foreach($locations as $thisLocation) {
 
-		}
+            if($thisLocation instanceof Location !== TRUE) {
 
-		$collection = new FeatureCollection($features);
+                throw new \LogicException('The given ObjectCollection must not contain an object that is not a Location.');
 
-		echo(json_encode($collection,JSON_PRETTY_PRINT));
+            }
 
-	}
+        }
 
-	protected function setLocations($locations) {
+        $this->locations = $locations;
 
-		// TODO be more specific than is_object()
-		if(is_object($locations) !== true) {
+    }
 
-			throw new Exception;
+    public function generate() {
 
-		}
+        header('Content-type: application/json');
 
-		$this->locations = $locations;
+        foreach($this->locations as $thisLocation) {
+
+            $point = new Point(array($thisLocation->getLongitude(),$thisLocation->getLatitude()));
+            $properties = array('name' => $thisLocation->getName());
+            $features[] = new Feature($point,$properties,$thisLocation->getID());
+
+        }
+
+        $collection = new FeatureCollection($features);
+
+        echo(json_encode($collection));
 
 	}
 
