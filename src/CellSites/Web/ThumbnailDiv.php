@@ -23,7 +23,7 @@ class ThumbnailDiv {
 
         if($this->photo->getTaken() !== null) {
 
-            echo('<p>#' . $this->photo->getID() . ' ' . $this->photo->getTaken()->format('d-M-y H:i') . '</p>' . PHP_EOL);
+            echo('<p>#' . $this->photo->getID() . ' ' . $this->photo->getTaken()->format(CELLSITES_FORMAT_DATE . ' ' . CELLSITES_FORMAT_TIME) . '</p>' . PHP_EOL);
 
         } else {
 

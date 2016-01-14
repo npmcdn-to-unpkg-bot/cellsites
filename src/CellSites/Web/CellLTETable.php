@@ -6,8 +6,6 @@ use CellSites\Database\CellLTEQuery;
 
 class CellLTETable {
 
-	const DATE_FORMAT = 'd-M-y';
-
 	private $query = null;
 	private $showMCC = true;
 	private $showMNC = true;
@@ -83,7 +81,7 @@ class CellLTETable {
 
 		}
 
-		echo('<span title="' . $cell->getDaysSinceLastSeen() . ' days since last seen">' . $cell->getLastSeen()->format(self::DATE_FORMAT) . '</span></td>' . PHP_EOL);
+		echo('<span title="' . $cell->getDaysSinceLastSeen() . ' days since last seen">' . $cell->getLastSeen()->format(CELLSITES_FORMAT_DATE) . '</span></td>' . PHP_EOL);
 
 	}
 
