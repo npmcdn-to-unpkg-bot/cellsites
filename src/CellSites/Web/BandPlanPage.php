@@ -23,7 +23,7 @@ class BandPlanPage extends Page {
 		echo('<th>Frequency amount</th>' . PHP_EOL);
 		echo('<th>Operator</th>' . PHP_EOL);
 		echo('<th>Purpose</th>' . PHP_EOL);
-		echo('<th>UARFCNs</th>' . PHP_EOL);
+		echo('<th>ARFCNs</th>' . PHP_EOL);
 		echo('<th class="numeric">MR#</th>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('</thead>' . PHP_EOL);
@@ -34,7 +34,7 @@ class BandPlanPage extends Page {
 		echo('<td>15 MHz</td>' . PHP_EOL);
 		echo('<td>Spark</td>' . PHP_EOL);
 		echo('<td>UMTS mobile uplink</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>1237, 1262, 1287</td>' . PHP_EOL);
 		echo('<td>288</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="success">' . PHP_EOL);
@@ -51,7 +51,7 @@ class BandPlanPage extends Page {
 		echo('<td>9.2 MHz</td>' . PHP_EOL);
 		echo('<td>Vodafone</td>' . PHP_EOL);
 		echo('<td>UMTS mobile uplink</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>2840, 2861</td>' . PHP_EOL);
 		echo('<td>253</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="info">' . PHP_EOL);
@@ -68,7 +68,7 @@ class BandPlanPage extends Page {
 		echo('<td>20 MHz</td>' . PHP_EOL);
 		echo('<td>Spark</td>' . PHP_EOL);
 		echo('<td>LTE mobile uplink</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>19550</td>' . PHP_EOL);
 		echo('<td>138</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="success text-muted">' . PHP_EOL);
@@ -76,7 +76,7 @@ class BandPlanPage extends Page {
 		echo('<td>5 MHz</td>' . PHP_EOL);
 		echo('<td>Spark</td>' . PHP_EOL);
 		echo('<td>Unused</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>n/a</td>' . PHP_EOL);
 		echo('<td>138</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="success">' . PHP_EOL);
@@ -84,7 +84,7 @@ class BandPlanPage extends Page {
 		echo('<td>20 MHz</td>' . PHP_EOL);
 		echo('<td>Vodafone</td>' . PHP_EOL);
 		echo('<td>LTE mobile uplink</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>19800</td>' . PHP_EOL);
 		echo('<td>315</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="success text-muted">' . PHP_EOL);
@@ -92,7 +92,7 @@ class BandPlanPage extends Page {
 		echo('<td>5 MHz</td>' . PHP_EOL);
 		echo('<td>Vodafone</td>' . PHP_EOL);
 		echo('<td>Unused</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>n/a</td>' . PHP_EOL);
 		echo('<td>315</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="success">' . PHP_EOL);
@@ -100,7 +100,7 @@ class BandPlanPage extends Page {
 		echo('<td>20 MHz</td>' . PHP_EOL);
 		echo('<td>Spark</td>' . PHP_EOL);
 		echo('<td>LTE mobile downlink</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>1550</td>' . PHP_EOL);
 		echo('<td>139</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="success text-muted">' . PHP_EOL);
@@ -108,7 +108,7 @@ class BandPlanPage extends Page {
 		echo('<td>5 MHz</td>' . PHP_EOL);
 		echo('<td>Spark</td>' . PHP_EOL);
 		echo('<td>Unused</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>n/a</td>' . PHP_EOL);
 		echo('<td>139</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="success">' . PHP_EOL);
@@ -116,7 +116,7 @@ class BandPlanPage extends Page {
 		echo('<td>20 MHz</td>' . PHP_EOL);
 		echo('<td>Vodafone</td>' . PHP_EOL);
 		echo('<td>LTE mobile downlink</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>1800</td>' . PHP_EOL);
 		echo('<td>314</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="success text-muted">' . PHP_EOL);
@@ -124,20 +124,20 @@ class BandPlanPage extends Page {
 		echo('<td>5 MHz</td>' . PHP_EOL);
 		echo('<td>Vodafone</td>' . PHP_EOL);
 		echo('<td>Unused</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>n/a</td>' . PHP_EOL);
 		echo('<td>314</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="group info">' . PHP_EOL);
 		echo('<td rowspan="2">IMT (2100 MHz) band</td>' . PHP_EOL);
-		echo('<td>1950&ndash;1965 MHz</td>' . PHP_EOL);
+		echo('<td>1950.1&ndash;1965.1 MHz</td>' . PHP_EOL);
 		echo('<td>15 MHz</td>' . PHP_EOL);
 		echo('<td>Spark</td>' . PHP_EOL);
 		echo('<td>UMTS mobile uplink</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>9763, 9788, 9813</td>' . PHP_EOL);
 		echo('<td>140</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="info">' . PHP_EOL);
-		echo('<td>2140&ndash;2155 MHz</td>' . PHP_EOL);
+		echo('<td>2140.1&ndash;2155.1 MHz</td>' . PHP_EOL);
 		echo('<td>15 MHz</td>' . PHP_EOL);
 		echo('<td>Spark</td>' . PHP_EOL);
 		echo('<td>UMTS mobile downlink</td>' . PHP_EOL);
@@ -150,7 +150,7 @@ class BandPlanPage extends Page {
 		echo('<td>20 MHz</td>' . PHP_EOL);
 		echo('<td>Spark</td>' . PHP_EOL);
 		echo('<td>LTE mobile uplink</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>21075 (15 MHz)</td>' . PHP_EOL);
 		echo('<td>393</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('<tr class="success">' . PHP_EOL);
@@ -158,7 +158,7 @@ class BandPlanPage extends Page {
 		echo('<td>20 MHz</td>' . PHP_EOL);
 		echo('<td>Spark</td>' . PHP_EOL);
 		echo('<td>LTE mobile downlink</td>' . PHP_EOL);
-		echo('<td></td>' . PHP_EOL);
+		echo('<td>3075 (15 MHz)</td>' . PHP_EOL);
 		echo('<td>392</td>' . PHP_EOL);
 		echo('</tr>' . PHP_EOL);
 		echo('</tbody>' . PHP_EOL);
