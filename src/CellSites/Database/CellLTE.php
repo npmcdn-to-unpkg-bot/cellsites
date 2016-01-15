@@ -2,64 +2,41 @@
 
 namespace CellSites\Database;
 
+use \LogicException;
 use CellSites\Database\Base\CellLTE as BaseCellLTE;
 
-class CellLTE extends BaseCellLTE {
+class CellLTE extends BaseCellLTE implements CellInterface {
 
-	private static $now = null;
+    public function getBand() {
 
-	public function getBand() {
+        if($this->getFrequency() === NULL) {
 
-		if($this->getEARFCN() === null) {
+            return(NULL);
 
-			return null;
+        }
 
-		} elseif($this->getEARFCN() === 1550) {
+        return($this->getFrequency()->getBandID());
 
-			return 3;
+    }
 
-		} else {
+    public function getCell() {
 
-			throw new RuntimeException('Unexected UARFCN.');
+        return($this->getID() & 255);
 
-		}
+    }
 
-	}
+    public function getController() {
 
-	public function getCell() {
+        throw new LogicException('CellLTE::getController() should never be called as it is not implemented.');
 
-		return($this->getID() & 255);
+    }
 
-	}
+    public function getNode() {
 
-	public function getDaysSinceLastSeen() {
+        return($this->getID() >> 8);
 
-		if($this->getLastSeen() === null) {
-
-			throw new Exception;
-
-		}
-
-		return($this->getLastSeen()->diff(self::getNow())->days);
-
-	}
-
-	public function getNode() {
-
-		return(($this->getID() & 268435200)/256);
-
-	}
-
-	private static function getNow() {
-
-		if(self::$now === null) {
-
-			self::$now = new \DateTime('now');
-
-		}
-
-		return(self::$now);
-
-	}
+    }
 
 }
+
+?>

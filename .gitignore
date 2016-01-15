@@ -2,6 +2,7 @@ cellsites.php
 composer.lock
 composer.phar
 generated-conf/
+generated-migrations/
 generated-sql/
 nbproject/
 propel.xml

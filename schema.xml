@@ -19,32 +19,33 @@
 			<unique-column name="name"/>
 		</unique>
 	</table>
-	<table name="area_umts" phpName="AreaUMTS">
-		<column name="country_id" type="integer" required="true" primaryKey="true"/>
-		<column name="network_id" type="integer" required="true" primaryKey="true"/>
-		<column name="id" type="integer" required="true" primaryKey="true"/>
-		<column name="name" type="varchar" size="255" required="true" primaryString="true"/>
-		<foreign-key foreignTable="country">
-			<reference local="country_id" foreign="id"/>
-		</foreign-key>
-		<foreign-key foreignTable="network">
-			<reference local="country_id" foreign="country_id"/>
-			<reference local="network_id" foreign="id"/>
-		</foreign-key>
-		<unique name="unique_name">
-			<unique-column name="country_id"/>
-			<unique-column name="network_id"/>
-			<unique-column name="name"/>
-		</unique>
-	</table>
+    <table name="area_umts" phpName="AreaUMTS">
+        <column name="country_id" type="integer" required="true" primaryKey="true"/>
+        <column name="network_id" type="integer" required="true" primaryKey="true"/>
+        <column name="id" type="integer" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="255" required="true" primaryString="true"/>
+        <column name="notes" type="longvarchar" required="false"/>
+        <foreign-key foreignTable="country">
+            <reference local="country_id" foreign="id"/>
+        </foreign-key>
+        <foreign-key foreignTable="network">
+            <reference local="country_id" foreign="country_id"/>
+            <reference local="network_id" foreign="id"/>
+        </foreign-key>
+        <unique name="unique_name">
+            <unique-column name="country_id"/>
+            <unique-column name="network_id"/>
+            <unique-column name="name"/>
+        </unique>
+    </table>
 	<table name="cell_lte" phpName="CellLTE">
 		<column name="country_id" type="integer" required="true" primaryKey="true"/>
 		<column name="network_id" type="integer" required="true" primaryKey="true"/>
 		<column name="id" type="integer" required="true" primaryKey="true"/>
 		<column name="area_id" type="integer" required="true"/>
 		<column name="location_id" type="integer" required="false"/>
-		<column name="earfcn_id" type="integer" requied="false"/>
-		<column name="physical_cell_id" type="integer" required="false"/>
+		<column name="earfcn_id" type="integer" requied="false" phpName="FrequencyID"/>
+		<column name="physical_cell_id" type="integer" required="false" phpName="Code"/>
 		<column name="last_seen" type="date" required="false"/>
 		<column name="notes" type="longvarchar" required="false"/>
 		<foreign-key foreignTable="area_lte" phpName="Area" refPhpName="Cell">
@@ -55,7 +56,7 @@
 		<foreign-key foreignTable="country">
 			<reference local="country_id" foreign="id"/>
 		</foreign-key>
-		<foreign-key foreignTable="earfcn">
+		<foreign-key foreignTable="earfcn" phpName="Frequency">
 			<reference local="earfcn_id" foreign="id"/>
 		</foreign-key>
 		<foreign-key foreignTable="location">
@@ -72,8 +73,8 @@
 		<column name="id" type="integer" required="true" primaryKey="true"/>
 		<column name="area_id" type="integer" required="true"/>
 		<column name="location_id" type="integer" required="false"/>
-		<column name="frequency_id" type="integer" requied="false"/>
-		<column name="scrambling_code" type="integer" required="false"/>
+		<column name="frequency_id" type="integer" required="true"/>
+		<column name="scrambling_code" type="integer" required="false" phpName="Code"/>
 		<column name="last_seen" type="date" required="false"/>
 		<column name="notes" type="longvarchar" required="false"/>
 		<foreign-key foreignTable="area_umts" phpName="Area" refPhpName="Cell">
