@@ -4,25 +4,31 @@ namespace CellSites\Database;
 
 use CellSites\Database\Base\CellUMTS as BaseCellUMTS;
 
-class CellUMTS extends BaseCellUMTS {
+class CellUMTS extends BaseCellUMTS implements CellInterface {
 
-	public function getNode() {
+    public function getBand() {
 
-		return(substr($this->getShortID(),0,-1));
+        return($this->getFrequency()->getBandID());
 
-	}
+    }
 
-	public function getRNC() {
+    public function getCell() {
 
-		return($this->getID() >> 16);
+        return($this->getID() & 65535);
 
-	}
+    }
 
-	public function getShortID() {
+    public function getController() {
 
-		return($this->getID() & 65535);
+        return($this->getID() >> 16);
 
-	}
+    }
+
+    public function getNode() {
+
+        return(substr($this->getCell(),0,-1));
+
+    }
 
 }
 

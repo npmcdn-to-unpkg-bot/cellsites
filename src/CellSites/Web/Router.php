@@ -2,6 +2,8 @@
 
 namespace CellSites\Web;
 
+use CellSites\Database\Network;
+
 class Router {
 
 	public static function getPage() {
@@ -38,11 +40,11 @@ class Router {
 
 		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})/tac-([1-9]\d*)$:',$request,$matches)) {
 
-			return new AreaLTEPage((int)$matches[1],(int)$matches[2],(int)$matches[3]);
+			return new AreaPage((int)$matches[1],(int)$matches[2],Network::LTE,(int)$matches[3]);
 
 		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})/ura-([1-9]\d*)$:',$request,$matches)) {
 
-			return new AreaUMTSPage((int)$matches[1],(int)$matches[2],(int)$matches[3]);
+			return new AreaPage((int)$matches[1],(int)$matches[2],Network::UMTS,(int)$matches[3]);
 
 		} elseif(preg_match(':^/location/([1-9]\d*)$:',$request,$matches)) {
 
