@@ -16,6 +16,9 @@ nav {margin-top: 1em;}
 /* Make unordered list padding more compact */
 ul {padding-left: 15px;}
 
+/* Add a one-line margin to bottom of each stack trace */ 
+ol.trace li {margin-bottom: 1em;}
+
 /* Draw attention to extra information provided via <span title="xxx"> */
 td span[title] {border-bottom: 1px dotted #777; cursor: help;}
 
