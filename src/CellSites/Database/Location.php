@@ -6,11 +6,17 @@ use CellSites\Database\Base\Location as BaseLocation;
 
 class Location extends BaseLocation {
 
-	public function getURL() {
+    public function getGeoJSONURL() {
 
-		return(sprintf('/location/%d',$this->getID()));
+        return($this->getURL() . '/geojson');
 
-	}
+    }
+
+    public function getURL() {
+
+        return('/location/' . $this->getID());
+
+    }
 
 }
 

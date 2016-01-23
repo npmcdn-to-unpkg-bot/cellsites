@@ -2,64 +2,56 @@
 
 namespace CellSites\Web;
 
+use LogicException;
 use CellSites\Database\LocationQuery;
 use CellSites\Database\PhotoQuery;
 
 class LocationPage extends Page {
 
-	private $location = null;
-	private $photoQuery = null;
+    private $location = NULL;
+    private $photoQuery = NULL;
 
-	public function __construct($locationID) {
+    public function __construct($locationID) {
 
-		if(is_int($locationID) !== true) {
+        if(is_int($locationID) !== TRUE) {
 
-			throw new Exception;
+            throw new LogicException('Given Location ID must be an integer.');
 
-		}
+        }
 
-		$this->location = LocationQuery::create()->findPk($locationID);
-		$this->photoQuery = PhotoQuery::create()->filterByVisible(true)->orderByTaken()->filterByLocation($this->location);
+        $this->location = LocationQuery::create()->findPk($locationID);
+        $this->photoQuery = PhotoQuery::create()->filterByVisible(TRUE)->orderByTaken()->filterByLocation($this->location);
 
-		if($this->location->getRegion() !== null) {
+        if($this->location->getRegion() !== NULL) {
 
-			$this->addBreadcrumb(new Breadcrumb($this->location->getRegion()->getName(),$this->location->getRegion()->getURL()));
+            $this->addBreadcrumb(new Breadcrumb($this->location->getRegion()->getName(),$this->location->getRegion()->getURL()));
 
-		}
+        }
 
-		$this->addBreadcrumb(new Breadcrumb($this->location->getName(),null));
+        $this->addBreadcrumb(new Breadcrumb($this->location->getName()));
 
-	}
+    }
 
-	protected function body() {
+    protected function body() {
 
-		echo('<div class="well">' . PHP_EOL);
-		echo('<h1 style="margin: 0">' . $this->location . ' <small>(#' . $this->location->getID() . ')</small></h1>' . PHP_EOL);
-		echo('</div>' . PHP_EOL); // end .well
+        echo('<div class="well"><h1>' . $this->location . ' <small>(#' . $this->location->getID() . ')</small></h1></div>' . PHP_EOL);
 
-    $map = new MapDiv(array('http://cellsites.nz/location/' . $this->location->getID() . '/geojson'));
-    $map->generate();
+        $map = new MapDiv(array($this->location->getGeoJSONURL()));
+        $map->generate();
 
-		if($this->photoQuery->count() > 0) {
+        if($this->photoQuery->count() > 0) {
 
-			echo('<div class="well">' . PHP_EOL);
-			echo('<h2 style="margin-top: 0">Photos</h2>' . PHP_EOL);
-			echo('<div class="row">' . PHP_EOL);
+            echo('<div class="well">' . PHP_EOL);
+            echo('<h2 style="margin-top: 0">Photos</h2>' . PHP_EOL);
 
-			foreach($this->photoQuery->find() as $thisPhoto) {
+            $thumbnails = new ThumbnailsDiv($this->photoQuery->find());
+            $thumbnails->generate();
 
-				$thumbnailDiv = new ThumbnailDiv($thisPhoto);
-                $thumbnailDiv->generate();
+            echo('</div>' . PHP_EOL);
 
-			}
+        }
 
-			echo('</div>' . PHP_EOL); // end .row
-			echo('</div>' . PHP_EOL); // end .well
-
-		}
-
-
-	}
+    }
 
 }
 
