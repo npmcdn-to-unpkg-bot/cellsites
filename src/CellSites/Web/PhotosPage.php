@@ -3,64 +3,64 @@
 namespace CellSites\Web;
 
 use CellSites\Database\PhotoQuery;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Util\PropelModelPager;
 
 class PhotosPage extends Page {
 
-	private $page = null;
-	private $query = null;
+    private $page = null;
+    private $query = null;
 
-	public function __construct($page) {
+    public function __construct($page) {
 
-		if(is_int($page) !== true) {
+        if(is_int($page) !== TRUE) {
 
-			throw new Exception;
+            throw new LogicException('Given Page ID must be an integer.');
 
-		}
+        }
 
-		$this->page = $page;
+        $this->page = $page;
 
-		if($this->page === 1) {
+        if($this->page === 1) {
 
-			$this->addBreadcrumb(new Breadcrumb('Photos',null));
+            $this->addBreadcrumb(new Breadcrumb('Photos'));
 
-		} else {
+        } else {
 
-			$this->addBreadcrumb(new Breadcrumb('Photos','/photos'));
-			$this->addBreadcrumb(new Breadcrumb('Page ' . $this->page,null));
+            $this->addBreadcrumb(new Breadcrumb('Photos','/photos'));
+            $this->addBreadcrumb(new Breadcrumb('Page ' . $this->page));
 
-		}
+        }
 
-		$this->query = PhotoQuery::create()->filterByVisible(true)->orderByTaken();
+        $this->query = PhotoQuery::create()->filterByVisible(TRUE)->orderByTaken();
 
-	}
+    }
 
-	protected function body() {
+    protected function body() {
 
+        echo('<div class="well">' . PHP_EOL);
+        echo('<h1>Photos</h1>' . PHP_EOL);
 
-		echo('<div class="well">' . PHP_EOL);
-		echo('<h1>Photos</h1>' . PHP_EOL);
+        if($this->query->count() === 0) {
 
-		if($this->query->count() === 0) {
+            echo('<p class="alert alert-warning">There were no photos in the database to display here.</p>' . PHP_EOL);
 
-			echo('<p class="alert alert-warning">There were no photos in the database to display here.</p>' . PHP_EOL);
+        } else {
 
-		} else {
-            
             $photoPager = $this->query->paginate($this->page,40);
 
-            $this->photos($photoPager->getResults());
+            $thumbnails = new ThumbnailsDiv($photoPager->getResults());
+            $thumbnails->generate();
 
-			$this->pagination($photoPager);
+            $this->pagination($photoPager);
 
-		}
+        }
 
-		echo('</div>' . PHP_EOL);
+        echo('</div>' . PHP_EOL);
 
-	}
-    
-    private function pagination(\Propel\Runtime\Util\PropelModelPager $photoPager) {
-        
+    }
+
+    private function pagination(PropelModelPager $photoPager) {
+
         echo('<nav>' . PHP_EOL);
         echo('<ul class="pagination">' . PHP_EOL);
 
@@ -69,13 +69,13 @@ class PhotosPage extends Page {
             echo('<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
 
         } else {
-            
+
             $previousURL = '/photos';
-                
+
             if($this->page !== 2) {
-                
+
                 $previousURL .= '/' . ($this->page - 1);
-                
+
             }
 
             echo('<li><a href="' . $previousURL . '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>' . PHP_EOL);
@@ -83,13 +83,13 @@ class PhotosPage extends Page {
         }
 
         for($i = 1; $i <= $photoPager->getLastPage(); $i++) {
-                
+
             $thisURL = '/photos';
-                
+
             if($i !== 1) {
-                
+
                 $thisURL .= '/' . $i;
-                
+
             }
 
             if($this->page === $i) {
@@ -105,52 +105,19 @@ class PhotosPage extends Page {
         }
 
         if($this->page !== $photoPager->getLastPage()) {
-            
+
             echo('<li><a href="/photos/' . ($this->page + 1) . '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>' . PHP_EOL);
-            
+
         } else {
-            
+
             echo('<li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>' . PHP_EOL);
-            
+
         }
 
         echo('</ul>' . PHP_EOL);
         echo('</nav>' . PHP_EOL);
-        
+
     }
-
-	private function photos(ObjectCollection $photos) {
-
-		$x = 0;
-
-		foreach($photos as $thisPhoto) {
-
-			if($x % 4 === 0) {
-
-				echo('<div class="row">'. PHP_EOL);
-
-			}
-            
-            $thumbnailDiv = new ThumbnailDiv($thisPhoto);
-            $thumbnailDiv->generate();
-
-			if($x % 4 === 3) {
-
-				echo('</div>' . PHP_EOL); // end .row
-
-			}
-
-			$x++;
-
-		}
-
-		if($x % 4 !== 0) {
-
-			echo('</div>' . PHP_EOL); // end .row
-
-		}
-
-	}
 
 }
 
