@@ -20,7 +20,7 @@ class HomePage extends Page {
 
 				if($thisNetwork->countCellLTEs() > 0 || $thisNetwork->countCellUMTSs() > 0) {
 
-					array_push($this->networks,$network);
+					array_push($this->networks,$thisNetwork);
 
 				}
 
