@@ -28,11 +28,15 @@ class Router {
 
 		} elseif($request === '/map') {
 
-			return new MapPage;
+			return new GlobalMapPage;
 
 		} elseif($request === '/photos') {
 
 			return new PhotosPage(1);
+
+		} elseif($request === '/update') {
+
+			return new UpdatePage;
 
 		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})$:',$request,$matches)) {
 
@@ -45,6 +49,22 @@ class Router {
 		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})/ura-([1-9]\d*)$:',$request,$matches)) {
 
 			return new AreaPage((int)$matches[1],(int)$matches[2],Network::UMTS,(int)$matches[3]);
+
+		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})/tac-([1-9]\d*)/map$:',$request,$matches)) {
+
+			return new AreaMapPage((int)$matches[1],(int)$matches[2],Network::LTE,(int)$matches[3]);
+
+		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})/ura-([1-9]\d*)/map$:',$request,$matches)) {
+
+			return new AreaMapPage((int)$matches[1],(int)$matches[2],Network::UMTS,(int)$matches[3]);
+
+		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})/tac-([1-9]\d*)/geojson$:',$request,$matches)) {
+
+			return new AreaGeoJSON((int)$matches[1],(int)$matches[2],Network::LTE,(int)$matches[3]);
+
+		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})/ura-([1-9]\d*)/geojson$:',$request,$matches)) {
+
+			return new AreaGeoJSON((int)$matches[1],(int)$matches[2],Network::UMTS,(int)$matches[3]);
 
 		} elseif(preg_match(':^/location/([1-9]\d*)$:',$request,$matches)) {
 

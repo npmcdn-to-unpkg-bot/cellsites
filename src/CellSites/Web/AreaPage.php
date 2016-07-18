@@ -7,11 +7,13 @@ use CellSites\Database\AreaLTEQuery;
 use CellSites\Database\AreaUMTSQuery;
 use CellSites\Database\CellLTEQuery;
 use CellSites\Database\CellUMTSQuery;
+use CellSites\Database\LocationQuery;
 use CellSites\Database\Network;
 
 class AreaPage extends Page {
 
-    private $area = NULL;
+	private $area = NULL;
+	private $numLocations = NULL;
     private $query = NULL;
 
     public function __construct($countryID,$networkID,$networkType,$areaID) {
@@ -36,11 +38,29 @@ class AreaPage extends Page {
 
         if($networkType === Network::UMTS) {
 
-            $this->area = AreaUMTSQuery::create()->findPk(array($countryID,$networkID,$areaID));
+			$this->area = AreaUMTSQuery::create()->findPk(array($countryID,$networkID,$areaID));
+
+			$this->numLocations = LocationQuery::create()
+				->distinct()
+				->useCellUMTSQuery()
+					->filterByCountryID($countryID)
+					->filterByNetworkID($networkID)
+					->filterByAreaID($areaID)
+				->endUse()
+				->count();
 
         } else {
 
             $this->area = AreaLTEQuery::create()->findPk(array($countryID,$networkID,$areaID));
+
+			$this->numLocations = LocationQuery::create()
+				->distinct()
+				->useCellLTEQuery()
+					->filterByCountryID($countryID)
+					->filterByNetworkID($networkID)
+					->filterByAreaID($areaID)
+				->endUse()
+				->count();
 
         }
 
@@ -83,10 +103,16 @@ class AreaPage extends Page {
 
             echo('<p>There are currently no information about cells in this area.</p>' . PHP_EOL);
 
-        } else {
+		} else {
+
+			if($this->numLocations > 0) {
+
+				echo('<p>Click <a href="' . $this->area->getURL() . '/map">here</a> for a map of locations with cells within this area.</p>' . PHP_EOL);
+
+			}
 
             $columns = CellsTable::COLUMN_ID + CellsTable::COLUMN_CELL
-                + CellsTable::COLUMN_BAND + CellsTable::COLUMN_FREQUENCY + CellsTable::COLUMN_CODE
+                + CellsTable::COLUMN_FREQUENCY + CellsTable::COLUMN_CODE
                 + CellsTable::COLUMN_LOCATION + CellsTable::COLUMN_LAST_SEEN + CellsTable::COLUMN_NOTES;
 
             if($this->query instanceof CellUMTSQuery) {

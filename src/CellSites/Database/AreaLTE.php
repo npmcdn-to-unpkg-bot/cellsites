@@ -6,6 +6,12 @@ use CellSites\Database\Base\AreaLTE as BaseAreaLTE;
 
 class AreaLTE extends BaseAreaLTE {
 
+	public function getGeoJSONURL() {
+
+		return($this->getURL() . '/geojson');
+
+	}
+
 	public function getIDAsHex() {
 
 		return('0x' . mb_strtoupper(dechex($this->getID())));

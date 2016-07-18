@@ -6,9 +6,15 @@ use CellSites\Database\Base\CellUMTS as BaseCellUMTS;
 
 class CellUMTS extends BaseCellUMTS implements CellInterface {
 
-    public function getBand() {
+	public function getBand() {
 
-        return($this->getFrequency()->getBandID());
+		if($this->getFrequency() != NULL) {
+
+			return($this->getFrequency()->getBandID());
+
+		}
+
+		return(NULL);
 
     }
 

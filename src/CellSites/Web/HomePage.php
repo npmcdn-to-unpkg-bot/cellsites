@@ -45,15 +45,15 @@ class HomePage extends Page {
 
 			foreach($this->networks as $thisNetwork) {
 
-				if($thisNetwork->countCellLTEs() > 0) {
+				if($thisNetwork->countCellLTEs() > 0 || $thisNetwork->countCellUMTSs()) {
 
 					echo('<li><a href="' . $thisNetwork->getURL() . '">' . $thisNetwork . '</a></li>' . PHP_EOL);
 
 				}
 
-				echo('</ul>' . PHP_EOL);
-
 			}
+
+			echo('</ul>' . PHP_EOL);
 
 		}
 
@@ -89,6 +89,17 @@ class HomePage extends Page {
 	}
     
     private function regionsRecursive($region) {
+/*
+				if($region->getName() === 'Henderson-Massey Local Board') {
+
+					$newRegion = new \CellSites\Database\Region();
+					$newRegion->setName('Hibiscus and Bays Local Board');
+					$newRegion->insertAsNextSiblingOf($region);
+					$newRegion->save();
+					
+
+				}
+ */
         
         echo('<li>');
         

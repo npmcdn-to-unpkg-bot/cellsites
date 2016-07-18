@@ -2,6 +2,7 @@
 	"name": "jamespole/cellsites",
 	"require": {
 		"jmikola/geojson": "^1.0",
+		"league/csv": "~8.0.0",
 		"php": ">=5.5.0",
 		"propel/propel": "~2.0@dev",
 		"twbs/bootstrap": "3.3.5"

@@ -6,6 +6,12 @@ use CellSites\Database\Base\AreaUMTS as BaseAreaUMTS;
 
 class AreaUMTS extends BaseAreaUMTS {
 
+	public function getGeoJSONURL() {
+		        
+		return($this->getURL() . '/geojson');
+				        
+	}
+
 	public function getLongID() {
 
 		return($this->getNetwork()->getLongID() . '-' . $this->getID());

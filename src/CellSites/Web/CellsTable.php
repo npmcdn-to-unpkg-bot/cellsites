@@ -192,20 +192,25 @@ class CellsTable {
         } elseif($cell->getLastSeen() === NULL) {
 
             echo('<td class="text-muted">Unknown</td>' . PHP_EOL);
+            return;
 
         }
 
         $daysSinceLastSeen = $cell->getLastSeen()->diff($this->now)->days;
 
-        if($daysSinceLastSeen > 28) {
+        if($daysSinceLastSeen > 100) {
 
             echo('<td class="text-warning"><span title="' . $daysSinceLastSeen . ' days since last seen">' . $cell->getLastSeen()->format(CELLSITES_FORMAT_DATE) . '</span></td>' . PHP_EOL);
 
-        } else {
+        } elseif($daysSinceLastSeen > 30) {
 
             echo('<td><span title="' . $daysSinceLastSeen . ' days since last seen">' . $cell->getLastSeen()->format(CELLSITES_FORMAT_DATE) . '</span></td>' . PHP_EOL);
 
-        }
+		} else {
+
+			echo('<td class="text-success"><span title="' . $daysSinceLastSeen . ' days since last seen">' . $cell->getLastSeen()->format(CELLSITES_FORMAT_DATE) . '</span></td>' . PHP_EOL);
+
+		}
 
     }
 

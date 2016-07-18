@@ -2,33 +2,91 @@
 
 namespace CellSites\Web;
 
-class MapPage extends Page {
+abstract class MapPage {
 
-	private $locations= null;
+	private $geojsons = null;
+	private $title = null;
 
-	public function __construct() {
+	protected function __construct($title,$array) {
 
-		$this->addBreadcrumb(new Breadcrumb('Map',null));
+		if(defined('CELLSITES_GOOGLE_MAPS_API_KEY') !== true) {
+
+			throw new Exception;
+
+		}
+
+		if(is_array($array) !== true) {
+
+			throw new Exception;
+
+		}
+
+		$this->title = $title;
+		$this->geojsons = $array;
 
 	}
 
-	protected function body() {
+	public function generate() {
 
-		echo('<p class="alert alert-info">Please note that this map does not contain locations of all cell sites in New Zealand. This map is an attempt to provide <i>accurate</i> locations of as many cell sites as possible. If you want a more complete map of all cell sites in New Zealand please visit <a href="https://gis.geek.nz/celltowers">GIS Geek\'s map</a>. Their map is based on data from <a href="http://www.rsm.govt.nz">Radio Spectrum Management</a>\'s register of radio frequencies (a service of the Ministry of Business, Innovation and Employment) which are, in some cases, out-of-date and/or inaccurate.</p>' . PHP_EOL);
-		$map = new MapDiv(array('http://cellsites.nz/locations/geojson'));
-		$map->generate();
-		echo('<div class="well">' . PHP_EOL);
-		echo('<h1>Useful links</h1>' . PHP_EOL);
-		echo('<h2>Domestic information</h2>' . PHP_EOL);
-		echo('<ul>' . PHP_EOL);
-		echo('<li><a href="http://cellsites.nz/locations/geojson">GeoJSON file containing locations in the map above</a> <small class="text-muted">(<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" rel="dct:type">dataset</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>)</small></li>' . PHP_EOL);
-		echo('<li><a href="https://gis.geek.nz/celltowers">Map of all cell sites in New Zealand from government data</a></li>' . PHP_EOL);
-		echo('</ul>' . PHP_EOL);
-		echo('<h2>International information</h2>' . PHP_EOL);
-		echo('<ul>' . PHP_EOL);
-		echo('<li><a href="http://www.sitefinder.ofcom.org.uk">Map of cell sites in the United Kingdom managed by a government agency from data contributed by operators</a>' . PHP_EOL);
-		echo('</ul>' . PHP_EOL);
-		echo('</div>' . PHP_EOL);
+		echo('<!DOCTYPE html>' . PHP_EOL);
+		echo('<html>' . PHP_EOL);
+		echo('<head>' . PHP_EOL);
+		echo('<meta charset="utf-8">' . PHP_EOL);
+		echo('<title>' . $this->title . '</title>' . PHP_EOL);
+		echo('<meta name="viewport" content="initial-scale=1.0">' . PHP_EOL);
+		echo('<style>' . PHP_EOL);
+		echo('html,body{height:100%;margin:0;padding:0;}' . PHP_EOL);
+		echo('#map{height:100%;}' . PHP_EOL);
+		echo('</style>' . PHP_EOL);
+		echo('</head>' . PHP_EOL);
+		echo('<body>' . PHP_EOL);
+		echo('<div id="map"></div>' . PHP_EOL);
+		echo('<script type="text/javascript">' . PHP_EOL);
+		echo('var map;' . PHP_EOL);
+		echo('var infowindow;' . PHP_EOL);
+		echo('function initMap() {' . PHP_EOL);
+		echo('map = new google.maps.Map(document.getElementById(\'map\'));' . PHP_EOL);
+		echo('google.maps.event.addListener(map, \'click\', function() {infowindow.close();});' . PHP_EOL);
+
+		foreach($this->geojsons as $geojson) {
+
+			echo('jQuery.getJSON(\'' . $geojson . '\', function(data){
+      map.data.addGeoJson(data);
+var bounds = new google.maps.LatLngBounds();
+  map.data.forEach(function(feature) {
+		processPoints(feature.getGeometry(), bounds.extend, bounds);
+  });
+  map.fitBounds(bounds);
+});' . PHP_EOL);
+
+		}
+
+		echo('infowindow = new google.maps.InfoWindow();' . PHP_EOL);
+		echo('map.data.addListener(\'click\', function(event) {
+     infowindow.setContent("<a href=\"/location/"+event.feature.getId()+"\">"+event.feature.getProperty(\'name\')+"</a>");
+     infowindow.setPosition(event.latLng);
+     infowindow.setOptions({pixelOffset: new google.maps.Size(0,-34)});
+     infowindow.open(map);
+  });' . PHP_EOL);
+		echo('}' . PHP_EOL);
+		echo('
+function processPoints(geometry, callback, thisArg) {
+  if (geometry instanceof google.maps.LatLng) {
+    callback.call(thisArg, geometry);
+  } else if (geometry instanceof google.maps.Data.Point) {
+    callback.call(thisArg, geometry.get());
+  } else {
+    geometry.getArray().forEach(function(g) {
+      processPoints(g, callback, thisArg);
+    });
+  }
+}' . PHP_EOL);
+
+		echo('</script>' . PHP_EOL);
+		echo('<script async defer src="https://maps.googleapis.com/maps/api/js?key=' . CELLSITES_GOOGLE_MAPS_API_KEY . '&callback=initMap"></script>' . PHP_EOL);
+		echo('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>' . PHP_EOL);
+		echo('</body>' . PHP_EOL);
+		echo('</html>' . PHP_EOL);
 
 	}
 
