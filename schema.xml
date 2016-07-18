@@ -5,7 +5,6 @@
 		<column name="network_id" type="integer" required="true" primaryKey="true"/>
 		<column name="id" type="integer" required="true" primaryKey="true"/>
 		<column name="name" type="varchar" size="255" required="true" primaryString="true"/>
-		<column name="notes" type="longvarchar" required="false"/>
 		<foreign-key foreignTable="country">
 			<reference local="country_id" foreign="id"/>
 		</foreign-key>
@@ -44,7 +43,7 @@
 		<column name="id" type="integer" required="true" primaryKey="true"/>
 		<column name="area_id" type="integer" required="true"/>
 		<column name="location_id" type="integer" required="false"/>
-		<column name="earfcn_id" type="integer" requied="false" phpName="FrequencyID"/>
+		<column name="frequency_id" type="integer" requied="false"/>
 		<column name="physical_cell_id" type="integer" required="false" phpName="Code"/>
 		<column name="last_seen" type="date" required="false"/>
 		<column name="notes" type="longvarchar" required="false"/>
@@ -56,8 +55,8 @@
 		<foreign-key foreignTable="country">
 			<reference local="country_id" foreign="id"/>
 		</foreign-key>
-		<foreign-key foreignTable="earfcn" phpName="Frequency">
-			<reference local="earfcn_id" foreign="id"/>
+		<foreign-key foreignTable="frequency_lte" phpName="Frequency">
+			<reference local="frequency_id" foreign="id"/>
 		</foreign-key>
 		<foreign-key foreignTable="location">
 			<reference local="location_id" foreign="id"/>
@@ -107,11 +106,11 @@
 		<column name="id" type="integer" required="true" primaryKey="true"/>
 		<column name="name" type="varchar" size="255" required="true" primaryString="true"/>
 	</table>
-	<table name="earfcn" phpName="EARFCN">
+	<table name="frequency_lte">
 		<column name="id" type="integer" required="true" primaryKey="true"/>
 		<column name="band_id" type="integer" required="true"/>
 	</table>
-	<table name="frequency_umts" phpName="FrequencyUMTS">
+	<table name="frequency_umts">
 		<column name="id" type="integer" required="true" primaryKey="true"/>
 		<column name="band_id" type="integer" required="true"/>
 	</table>
