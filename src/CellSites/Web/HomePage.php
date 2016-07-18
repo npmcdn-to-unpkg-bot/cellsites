@@ -7,12 +7,27 @@ use CellSites\Database\RegionQuery;
 
 class HomePage extends Page {
 
-	private $networks = null;
+	private $networks = array();
 	private $regionsRoot = null;
 
 	public function __construct() {
 
-		$this->networks = NetworkQuery::create()->orderByName()->find();
+		$networks = NetworkQuery::create()->orderByName()->find();
+
+		if($networks->count() > 0) {
+
+			foreach($networks as $thisNetwork) {
+
+				if($thisNetwork->countCellLTEs() > 0 || $thisNetwork->countCellUMTSs() > 0) {
+
+					array_push($this->networks,$network);
+
+				}
+
+			}
+
+		}
+
 		$this->regionsRoot = RegionQuery::create()->findRoot();
 
 	}
@@ -34,7 +49,7 @@ class HomePage extends Page {
 		echo('<div class="well">' . PHP_EOL);
 		echo('<h1>Browse by network</h1>' . PHP_EOL);
 
-		if($this->networks->count() === 0) {
+		if(count($this->networks) === 0) {
 
 			echo('<p class="alert alert-warning">There were no networks in the database to display here.</p>' . PHP_EOL);
 
@@ -45,11 +60,7 @@ class HomePage extends Page {
 
 			foreach($this->networks as $thisNetwork) {
 
-				if($thisNetwork->countCellLTEs() > 0 || $thisNetwork->countCellUMTSs()) {
-
-					echo('<li><a href="' . $thisNetwork->getURL() . '">' . $thisNetwork . '</a></li>' . PHP_EOL);
-
-				}
+				echo('<li><a href="' . $thisNetwork->getURL() . '">' . $thisNetwork . '</a></li>' . PHP_EOL);
 
 			}
 
