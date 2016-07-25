@@ -437,7 +437,7 @@ class CellsTable {
 
             } elseif(($this->query instanceof CellUMTSQuery) === TRUE) {
 
-                echo('<th>Scrambling Code</th>' . PHP_EOL);
+                echo('<th><abbr title="Primary Scrambling Code">PSC</abbr></th>' . PHP_EOL);
 
             } else {
 

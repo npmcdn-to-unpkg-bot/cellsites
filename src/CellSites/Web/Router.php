@@ -58,6 +58,10 @@ class Router {
 
 			return new AreaMapPage((int)$matches[1],(int)$matches[2],Network::UMTS,(int)$matches[3]);
 
+		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})/ura-([1-9]\d*)/print$:',$request,$matches)) {
+
+			return new PrintUmtsCells((int)$matches[1],(int)$matches[2],(int)$matches[3]);
+
 		} elseif(preg_match(':^/([0-9]{3})/([0-9]{2})/tac-([1-9]\d*)/geojson$:',$request,$matches)) {
 
 			return new AreaGeoJSON((int)$matches[1],(int)$matches[2],Network::LTE,(int)$matches[3]);

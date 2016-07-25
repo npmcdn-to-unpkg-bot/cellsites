@@ -76,12 +76,12 @@ class AreaPage extends Page {
 
         if($networkType === Network::UMTS) {
 
-            $this->query = CellUMTSQuery::create()->filterByArea($this->area);
+            $this->query = CellUMTSQuery::create()->filterByArea($this->area)->orderByID();
             $this->addBreadcrumb(new Breadcrumb($this->area->getName() . ' UMTS'));
 
         } else {
 
-            $this->query = CellLTEQuery::create()->filterByArea($this->area);
+            $this->query = CellLTEQuery::create()->filterByArea($this->area)->orderByID();
             $this->addBreadcrumb(new Breadcrumb($this->area->getName() . ' LTE'));
 
         }
@@ -92,12 +92,6 @@ class AreaPage extends Page {
 
         echo('<div class="well">' . PHP_EOL);
         echo('<h1>' .  $this->area . ' <small>(' . $this->area->getNetwork()->getLongID() . '-' . $this->area->getID() . '/' . $this->area->getIDAsHex() . ')</small></h1>' . PHP_EOL);
-
-        if($this->area->getNotes() !== null && strlen($this->area->getNotes()) > 0) {
-
-            echo('<p>' . $this->area->getNotes() . '</p>' . PHP_EOL);
-
-        }
 
         if($this->query->count() === 0) {
 

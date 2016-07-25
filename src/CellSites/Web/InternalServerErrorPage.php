@@ -39,49 +39,7 @@ class InternalServerErrorPage extends Page {
 
                 echo('<div class="well">' . PHP_EOL);
                 echo('<h2>Trace</h2>' . PHP_EOL);
-                echo('<ol class="trace">' . PHP_EOL);
-
-                foreach($this->exception->getTrace() as $thisTrace) {
-
-                    echo('<li><b>' . $thisTrace['file'] . '(' . $thisTrace['line'] . '):</b><br>' . PHP_EOL);
-
-                    if(isset($thisTrace['class'])) {
-
-                        echo($thisTrace['class'] . $thisTrace['type']);
-
-                    }
-
-                    echo($thisTrace['function'] . '(');
-
-                    if(count($thisTrace['args']) !== 0) {
-
-                        for($i = 0; $i < count($thisTrace['args']); $i++) {
-
-                            if(is_string($thisTrace['args'][$i])) {
-
-                                echo('<span class="text-info">"' . htmlentities($thisTrace['args'][$i]) . '"</span>');
-
-                            } else {
-
-                                echo(htmlentities($thisTrace['args'][$i]));
-
-                            }
-
-                            if($i !== (count($thisTrace['args'])-1)) {
-
-                                echo(',');
-
-                            }
-
-                        }
-
-                    }
-
-                    echo(')</li>' . PHP_EOL);
-
-                }
-
-                echo('</ol>' . PHP_EOL);
+		echo($this->exception->getTraceAsString());
                 echo('</div>' . PHP_EOL);
 
             }

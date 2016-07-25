@@ -47,13 +47,13 @@ class NetworkPage extends Page {
 
 			$areaName = 'Tracking Area Code';
 			$query = $this->areaLTEQuery;
-            $typeName = 'LTE';
+			$typeName = 'LTE';
 
 		} else {
             
-            throw new LogicException('Given Network Type was not valid.');
+			throw new LogicException('Given Network Type was not valid.');
             
-        }
+		}
 
 		echo('<div class="col-md-6">' . PHP_EOL);
 		echo('<div class="well">' . PHP_EOL);

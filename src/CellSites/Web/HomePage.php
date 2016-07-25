@@ -101,16 +101,16 @@ class HomePage extends Page {
     
     private function regionsRecursive($region) {
 /*
-				if($region->getName() === 'Henderson-Massey Local Board') {
+				if($region->getName() === 'Otago Regional Council') {
 
 					$newRegion = new \CellSites\Database\Region();
-					$newRegion->setName('Hibiscus and Bays Local Board');
+					$newRegion->setName('Taranaki Regional Council');
 					$newRegion->insertAsNextSiblingOf($region);
 					$newRegion->save();
 					
 
 				}
- */
+*/
         
         echo('<li>');
         

@@ -4,7 +4,7 @@
 		"jmikola/geojson": "^1.0",
 		"league/csv": "~8.0.0",
 		"php": ">=5.5.0",
-		"propel/propel": "~2.0@dev",
+		"propel/propel": "2.0.0-alpha5",
 		"twbs/bootstrap": "3.3.5"
 	},
 	"suggest": {

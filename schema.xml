@@ -23,7 +23,6 @@
         <column name="network_id" type="integer" required="true" primaryKey="true"/>
         <column name="id" type="integer" required="true" primaryKey="true"/>
         <column name="name" type="varchar" size="255" required="true" primaryString="true"/>
-        <column name="notes" type="longvarchar" required="false"/>
         <foreign-key foreignTable="country">
             <reference local="country_id" foreign="id"/>
         </foreign-key>
@@ -122,6 +121,7 @@
 		<column name="longitude" type="double" required="true"/>
 		<column name="coordinates_source_id" type="integer" required="false"/>
 		<column name="notes" type="longvarchar" required="false"/>
+		<column name="accurate" type="boolean"/>
 		<foreign-key foreignTable="region">
 			<reference local="region_id" foreign="id"/>
 		</foreign-key>
@@ -144,7 +144,7 @@
 		<column name="id" type="integer" required="true" primaryKey="true"/>
 		<column name="hash" type="varchar" required="true"/>
 		<column name="taken" type="timestamp" required="false"/>
-		<column name="orientationOverride" type="integer" required="false"/>
+		<column name="orientation_override" type="integer" required="false"/>
 		<column name="visible" type="boolean" required="true"/>
 		<unique>
 			<unique-column name="hash"/>

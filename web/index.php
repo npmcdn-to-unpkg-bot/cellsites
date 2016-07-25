@@ -16,9 +16,9 @@ try {
 
 } catch (\Exception $e) {
 
-    $internalServerErrorPage = new InternalServerErrorPage($e);
-    $internalServerErrorPage->generate();
-    exit;
+	$internalServerErrorPage = new InternalServerErrorPage($e);
+	$internalServerErrorPage->generate();
+	exit;
 
 }
 

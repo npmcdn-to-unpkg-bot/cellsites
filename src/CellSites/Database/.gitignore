@@ -7,10 +7,10 @@ CoordinatesSource.php
 CoordinatesSourceQuery.php
 Country.php
 CountryQuery.php
-EARFCN.php
-EARFCNQuery.php
-FrequencyUMTS.php
-FrequencyUMTSQuery.php
+FrequencyLte.php
+FrequencyLteQuery.php
+FrequencyUmts.php
+FrequencyUmtsQuery.php
 LocationQuery.php
 Map/
 NetworkQuery.php
