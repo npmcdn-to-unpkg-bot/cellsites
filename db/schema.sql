@@ -114,22 +114,32 @@ CREATE TABLE location (
 
 -- Depends: location
 CREATE TABLE cell_umts (
-	mcc      INTEGER NOT NULL DEFAULT 530,
-	mnc      INTEGER NOT NULL DEFAULT 5,
-	lcid     INTEGER NOT NULL,
-	ura      INTEGER NOT NULL,
-	uarfcn   INTEGER NOT NULL,
-	psc      INTEGER NOT NULL,
-	location INTEGER,
-	last_seen DATETIME NOT NULL,
+	mcc       INTEGER NOT NULL DEFAULT 530,
+	mnc       INTEGER NOT NULL DEFAULT 5,
+	lcid      INTEGER NOT NULL,
+	ura       INTEGER NOT NULL,
+	uarfcn    INTEGER NOT NULL,
+	psc       INTEGER NOT NULL,
+	location  INTEGER,
+	last_seen DATETIME NOT NULL DEFAULT (date('now')), -- TODO default now()
 	PRIMARY KEY (mcc, mnc, lcid),
 	FOREIGN KEY (mcc, mnc) REFERENCES network,
 	FOREIGN KEY (mcc, mnc, ura) REFERENCES area_umts,
 	FOREIGN KEY (mcc, mnc, uarfcn) REFERENCES network_frequency_umts,
 	FOREIGN KEY (mcc, mnc, location) REFERENCES network_location,
 	CHECK (psc BETWEEN 0 AND 511),
-	CHECK (last_seen BETWEEN date('2000-01-01') AND date('now'))
+	CHECK (last_seen BETWEEN date('2000-01-01') AND date('now','localtime'))
 );
+
+-- Depends: location
+CREATE VIEW region_full AS SELECT
+	region.id,
+	region.name,
+	region.parent,
+	count(location.id) AS locations_count
+FROM region
+LEFT OUTER JOIN location ON location.region = region.id
+GROUP BY region.id, region.name, region.parent;
 
 -- Depends: cell_umts
 CREATE VIEW cell_umts_full AS SELECT

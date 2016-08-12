@@ -1,5 +1,6 @@
 @media (min-width: 768px) {
 	body {margin: 2em auto; max-width: 35em;}
 }
-h1, h2 {font-family: sans-serif;}
+h1, h2, h3 {font-family: sans-serif;}
 code {background: silver;}
+.embeddedmap {height: 25em;}

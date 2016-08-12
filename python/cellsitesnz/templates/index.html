@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Countries</h2>
+<ul>
+{% for country_id, country in countries.iteritems() %}<li><a href="{{ country_id }}">{{ country.name }}</a>
+<ul>
+{% for network_id, network in country['networks'].iteritems() %}
+<li><a href="{{ country_id }}/{{ network_id }}">{{ network.name }}</a></li>
+{% endfor %}
+</ul>
+</li>{% endfor %}
+</ul>
+<hr>
+<h2>Regions</h2>
+<ul>
+{%- for region_id, region in regions.items() recursive %}
+{% if region.locations_count > 0 %}
+<li><a href="region/{{ region_id }}">{{ region.name }}</a> ({{ region.locations_count }})</li>
+{% else %}
+<li>{{ region.name }}</li>
+{% endif %}
+{%- if region.children -%}
+<ul>
+{{ loop(region.children.items()) }}
+</ul>
+{%- endif %}
+</li>
+{%- endfor %}
+</ul>
+{% endblock %}

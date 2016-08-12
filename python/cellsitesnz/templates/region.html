@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>{{ region.name}}</h2>
+<h3>Locations</h3>
+<ul>
+{% for location_id, location in locations.iteritems() %}
+<li><a href="/location/{{ location_id }}">{{ location.name }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
