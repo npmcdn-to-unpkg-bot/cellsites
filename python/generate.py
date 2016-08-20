@@ -2,100 +2,149 @@
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 import codecs
-import datetime
 import os
 import sqlite3
-from jinja2 import Environment, PackageLoader
 
-#
-# Fetch the data from the database
-#
+from datetime import datetime
+from jinja2 import Environment, FileSystemLoader
 
-conn = sqlite3.connect('../db/cs.db')
+DATABASE = os.path.abspath('../db/cs.db')
+TEMPLATES = os.path.abspath('templates')
+OUTPUT = os.path.abspath('../web')
+
+index_output_path = os.path.abspath(OUTPUT + "/index.html")
+regions_directory = os.path.abspath(OUTPUT + '/region/{}')
+regions_output_path = os.path.abspath(regions_directory + "/index.html")
+locations_directory = os.path.abspath(OUTPUT + '/location/{}')
+locations_output_path = os.path.abspath(locations_directory + "/index.html")
+
+#region_map_directory = os.path.abspath(regions_directory_output_path + "/map")
+#region_map_document = os.path.abspath(region_map_directory + "/index.html")
+region_locations_geojson_path = regions_directory + "/locations.geojson"
+
+def makedirs(path):
+    """Make all the directories in the given path."""
+    try:
+        os.makedirs(path)
+    except OSError:
+        if not os.path.isdir(path):
+            raise
+
+class Country:
+    """Represents a country."""
+    mcc = None
+    name = None
+    networks = None
+    def __init__(self, mcc, name):
+        self.mcc = mcc 
+        self.name = name
+    def add_network(self, network):
+        """Add a network to this country."""
+        if self.networks == None:
+            self.networks = {}
+        self.networks[network.mnc] = network
+
+class Location:
+    """Represents a location."""
+    identifier = None
+    latitude = None
+    longitude = None
+    name = None
+    region = None
+    def __init__(self, region, identifier, name, latitude, longitude):
+        self.region = region
+        self.identifier = identifier
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+        if self.region != None:
+            self.region.addLocation(self)
+
+class Network:
+    """Represents a mobile network."""
+    country = None
+    mnc = None
+    name = None
+    def __init__(self, country, mnc, name):
+        self.country = country
+        self.mnc = mnc
+        self.name = name
+        self.country.add_network(self)
+
+class Region:
+    """Represents a region."""
+    children = None
+    identifier = None
+    locations = None
+    name = None
+    parent = None
+    def __init__(self, parent, identifier, name):
+        self.parent = parent
+        self.identifier = identifier
+        self.name = name
+        if self.parent != None:
+            parent.addChild(self)
+    def addChild(self, child):
+        """Add a child sub-region which is within this parent region."""
+        if self.children == None:
+            self.children = {}
+        self.children[child.identifier] = child
+    def addLocation(self, location):
+        """Add a location to this region."""
+        if self.locations == None:
+            self.locations = {}
+        self.locations[location.identifier] = location
+
+conn = sqlite3.connect(DATABASE)
 c = conn.cursor()
 
 countries = {}
 regions = {}
 locations = {}
 
-for row in c.execute('SELECT mcc, name FROM country ORDER BY name'):
-    countries[row[0]] = {}
-    countries[row[0]]['name'] = row[1]
-    countries[row[0]]['networks'] = {}
+for row in c.execute('SELECT mcc, name FROM country'):
+    countries[row[0]] = Country(row[0], row[1])
 
-for row in c.execute('SELECT mcc, mnc, name FROM network ORDER BY name'):
-    countries[row[0]]['networks'][row[1]] = {}
-    countries[row[0]]['networks'][row[1]]['name'] = row[2];
+for row in c.execute('SELECT mcc, mnc, name FROM network'):
+    Network(countries[row[0]], row[1], row[2])
 
-for row in c.execute('SELECT id, name, parent, locations_count FROM region_full ORDER BY parent'):
-    region = {}
-    region['id'] = row[0]
-    region['name'] = row[1]
-    region['locations_count'] = row[3]
-    if row[3] > 0:
-        region['locations'] = {}
-    regions[row[0]] = region
-    if row[2] != None:
-        if regions[row[2]].get('children') == None:
-            regions[row[2]]['children'] = {}
-        regions[row[2]]['children'][row[0]] = region
+for row in c.execute('SELECT id, name, parent FROM region ORDER BY parent'):
+    if row[2] == None:
+        regions[row[0]] = Region(None, row[0], row[1])
+    else:
+        regions[row[0]] = Region(regions[row[2]], row[0], row[1])
 
-for row in c.execute('SELECT id, name, region, latitude, longitude FROM location ORDER BY name'):
-    location = {}
-    location['name'] = row[1]
-    location['region'] = regions[row[2]]
-    location['latitude'] = row[3]
-    location['longitude'] = row[4]
-    locations[row[0]] = location
-    regions[row[2]]['locations'][row[0]] = location # TODO fix this so it stores locaitons in alphabetical order
+for row in c.execute('SELECT id, name, region, latitude, longitude FROM location'):
+    locations[row[0]] = Location(regions[row[2]], row[0], row[1], row[3], row[4])
 
 conn.close()
 
-#
-# Generate the pages from the templates
-#
+env = Environment(loader = FileSystemLoader(TEMPLATES))
+locationsGeojsonTemplate = env.get_template('locations.geojson')
+#mapTemplate = env.get_template('map.html')
+regionTemplate = env.get_template('region.html')
+locationTemplate = env.get_template('location.html')
 
-env = Environment(loader=PackageLoader('cellsitesnz', 'templates'))
+makedirs(OUTPUT)
 
-title = "NZ Cell Sites"
+with codecs.open(index_output_path, encoding='utf-8', mode='w') as f:
+    f.write(env.get_template('index.html').render(title='NZ Cell Sites',
+        countries=countries, regions=regions, now=datetime.now()))
 
-template = env.get_template('index.html')
+for region in regions.itervalues():
+    if region.locations != None:
+        makedirs(regions_directory.format(region.identifier))
+        with codecs.open(regions_output_path.format(region.identifier),
+            encoding='utf-8', mode='w') as f:
+            f.write(regionTemplate.render(region=region, now=datetime.now(), title=region.name))
+        with codecs.open(region_locations_geojson_path.format(region.identifier), encoding='utf-8', mode='w') as f:
+            f.write(locationsGeojsonTemplate.render(locations=region.locations,
+                now=datetime.now(), title=region.name))
+        #makedirs(region_map_directory)
+        #with codecs.open(.format(region.identifier), encoding='utf-8', mode='w') as f:
+        #    f.write(map_temlate.render(region=region, now=datetime.now(), title=region.name))
 
-today = datetime.date.today()
-
-with codecs.open('../web/index.html', encoding='utf-8', mode='w') as f:
-    f.write(template.render(title='Cell Sites NZ',countries=countries,regions=regions[1]['children'],today=today))
-
-regions_dir = '../web/region';
-
-try:
-    os.makedirs(regions_dir)
-except OSError:
-    if not os.path.isdir(regions_dir):
-        raise
-
-region_template = env.get_template('region.html')
-
-for region in regions:
-    if regions[region]['locations_count'] == 0:
-        continue
-    region_dir = regions_dir + '/' + str(region)
-    try:
-        os.makedirs(region_dir)
-    except OSError:
-        if not os.path.isdir(region_dir):
-            raise
-    with codecs.open(region_dir + '/index.html', encoding='utf-8', mode='w') as f:
-        f.write(region_template.render(region=regions[region], locations=regions[region]['locations'], today=today, title=title))
-
-location_template = env.get_template('location.html')
-
-for location in locations:
-    location_dir = '../web/location/' + str(location)
-    try:
-        os.makedirs(location_dir)
-    except OSError:
-        if not os.path.isdir(location_dir):
-            raise
-    with codecs.open(location_dir + '/index.html', encoding='utf8', mode='w') as f:
-        f.write(location_template.render(location = locations[location], region=locations[location]['region'], today=today, title=locations[location]['name']))
+for location in locations.itervalues():
+    makedirs(locations_directory.format(location.identifier))
+    with codecs.open(locations_output_path.format(location.identifier), encoding='utf-8', mode='w') as f:
+        f.write(locationTemplate.render(location = location, now=datetime.now(), title=location.name))

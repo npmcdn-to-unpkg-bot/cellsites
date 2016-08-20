@@ -1,0 +1,18 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{% for location in locations.itervalues() %}
+		{
+			"type": "Feature",
+			"id": {{ location.identifier }},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [{{ location.longitude }}, {{ location.latitude }}]
+			},
+			"properties": {
+				"name": "{{ location.name }}"
+			}
+		}{% if loop.last != True %},{% endif %}
+		{% endfor %}
+	]
+}
