@@ -11,16 +11,8 @@ from jinja2 import Environment, FileSystemLoader
 DATABASE = os.path.abspath('../db/cs.db')
 TEMPLATES = os.path.abspath('templates')
 OUTPUT = os.path.abspath('../web')
-
-index_output_path = os.path.abspath(OUTPUT + "/index.html")
-regions_directory = os.path.abspath(OUTPUT + '/region/{}')
-regions_output_path = os.path.abspath(regions_directory + "/index.html")
-locations_directory = os.path.abspath(OUTPUT + '/location/{}')
-locations_output_path = os.path.abspath(locations_directory + "/index.html")
-
-#region_map_directory = os.path.abspath(regions_directory_output_path + "/map")
-#region_map_document = os.path.abspath(region_map_directory + "/index.html")
-region_locations_geojson_path = regions_directory + "/locations.geojson"
+LOCATIONS = OUTPUT + '/location/{}'
+REGIONS = OUTPUT + '/region/{}'
 
 def makedirs(path):
     """Make all the directories in the given path."""
@@ -38,11 +30,7 @@ class Country:
     def __init__(self, mcc, name):
         self.mcc = mcc 
         self.name = name
-    def add_network(self, network):
-        """Add a network to this country."""
-        if self.networks == None:
-            self.networks = {}
-        self.networks[network.mnc] = network
+        self.networks = {}
 
 class Location:
     """Represents a location."""
@@ -54,11 +42,10 @@ class Location:
     def __init__(self, region, identifier, name, latitude, longitude):
         self.region = region
         self.identifier = identifier
+        self.region.locations[self.identifier] = self
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
-        if self.region != None:
-            self.region.addLocation(self)
 
 class Network:
     """Represents a mobile network."""
@@ -69,7 +56,7 @@ class Network:
         self.country = country
         self.mnc = mnc
         self.name = name
-        self.country.add_network(self)
+        self.country.networks[self.mnc] = self
 
 class Region:
     """Represents a region."""
@@ -82,18 +69,10 @@ class Region:
         self.parent = parent
         self.identifier = identifier
         self.name = name
+        self.children = {}
         if self.parent != None:
-            parent.addChild(self)
-    def addChild(self, child):
-        """Add a child sub-region which is within this parent region."""
-        if self.children == None:
-            self.children = {}
-        self.children[child.identifier] = child
-    def addLocation(self, location):
-        """Add a location to this region."""
-        if self.locations == None:
-            self.locations = {}
-        self.locations[location.identifier] = location
+            self.parent.children[self.identifier] = self
+        self.locations = {}
 
 conn = sqlite3.connect(DATABASE)
 c = conn.cursor()
@@ -121,30 +100,30 @@ conn.close()
 
 env = Environment(loader = FileSystemLoader(TEMPLATES))
 locationsGeojsonTemplate = env.get_template('locations.geojson')
-#mapTemplate = env.get_template('map.html')
+mapTemplate = env.get_template('map.html')
 regionTemplate = env.get_template('region.html')
 locationTemplate = env.get_template('location.html')
 
 makedirs(OUTPUT)
 
-with codecs.open(index_output_path, encoding='utf-8', mode='w') as f:
+with codecs.open(OUTPUT + "/index.html", encoding='utf-8', mode='w') as f:
     f.write(env.get_template('index.html').render(title='NZ Cell Sites',
         countries=countries, regions=regions, now=datetime.now()))
 
 for region in regions.itervalues():
     if region.locations != None:
-        makedirs(regions_directory.format(region.identifier))
-        with codecs.open(regions_output_path.format(region.identifier),
+        makedirs(REGIONS.format(region.identifier))
+        with codecs.open((REGIONS + "/index.html").format(region.identifier),
             encoding='utf-8', mode='w') as f:
             f.write(regionTemplate.render(region=region, now=datetime.now(), title=region.name))
-        with codecs.open(region_locations_geojson_path.format(region.identifier), encoding='utf-8', mode='w') as f:
+        with codecs.open((REGIONS + "/locations.geojson").format(region.identifier), encoding='utf-8', mode='w') as f:
             f.write(locationsGeojsonTemplate.render(locations=region.locations,
                 now=datetime.now(), title=region.name))
-        #makedirs(region_map_directory)
-        #with codecs.open(.format(region.identifier), encoding='utf-8', mode='w') as f:
-        #    f.write(map_temlate.render(region=region, now=datetime.now(), title=region.name))
+        makedirs((REGIONS + "/map").format(region.identifier))
+        with codecs.open((REGIONS + "/map/index.html").format(region.identifier), encoding='utf-8', mode='w') as f:
+            f.write(mapTemplate.render(title=region.name))
 
 for location in locations.itervalues():
-    makedirs(locations_directory.format(location.identifier))
-    with codecs.open(locations_output_path.format(location.identifier), encoding='utf-8', mode='w') as f:
+    makedirs(LOCATIONS.format(location.identifier))
+    with codecs.open((LOCATIONS + "index.html").format(location.identifier), encoding='utf-8', mode='w') as f:
         f.write(locationTemplate.render(location = location, now=datetime.now(), title=location.name))

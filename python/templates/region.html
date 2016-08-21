@@ -1,30 +1,21 @@
 {% extends "base.html" %}
 {% block head %}
-	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="/map.js"></script>
 {% endblock %}
 {% block body %}
-	<h2>{{ region.name}}</h2>
-	<h3>Locations</h3>
-	<div class="embeddedmap" id="locationmap"></div>
+<h2>{{ region.name}}</h2>
+<h3>Locations</h3>
+<div class="embeddedmap" id="map"></div>
+<script>
+map("map","locations.geojson","boundaries.geojson");
+</script>
+<p>See <a href="./map/">full screen map</a>.</p>
 	<ul>
 		{% for location in region.locations.itervalues() %}
 			<li><a href="/location/{{ location.identifier }}">{{ location.name }}</a></li>
 		{% endfor %}
 	</ul>
-	<script type="text/javascript">
-		$.getJSON("locations.geojson")
-			.done(function(data) {
-				var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'});
-				var geojson = L.geoJson(data, {
-					onEachFeature: function (feature, layer) {
-						layer.bindPopup(feature.properties.name);
-					}
-				});
-				var map = L.map('locationmap').fitBounds(geojson.getBounds());
-				layer.addTo(map);
-				geojson.addTo(map);
-			});
-	</script>
 {% endblock %}

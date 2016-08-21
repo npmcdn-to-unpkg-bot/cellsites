@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <title>{{ title }}</title>
 <link href="/style.css" rel="stylesheet">
-{% block head %}{% endblock %}
+{% block head %}{% endblock -%}
 </head>
 <body>
 <h1><a href="/">Cell Sites in New Zealand</a></h1>
 <hr>
-{% block body %}{% endblock %}
+{% block body %}{% endblock -%}
 <hr>
 <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 <p>Last updated {{ now.strftime('%c') }} by <a href="mailto:james@pole.net.nz">James Pole</a>.</p>

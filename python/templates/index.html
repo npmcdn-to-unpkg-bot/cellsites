@@ -1,29 +1,30 @@
 {% extends "base.html" %}
-{% block body %}
-	<h2>Countries</h2>
-	<ul>
-		{% for country in countries.itervalues() %}
-			<li><a href="{{ country.mcc }}">{{ country.name }}</a>
-				<ul>
-					{% for network in country.networks.itervalues() %}
-						<li><a href="{{ country.mcc }}/{{ network.mnc }}">{{ network.name }}</a></li>
-					{% endfor %}
-				</ul>
-			</li>
-		{% endfor %}
-	</ul>
-	<hr>
-	<h2>Regions</h2>
-	<ul>
-		{%- for region in regions[1].children.itervalues() recursive %}
-			<li>
-				<a href="region/{{ region.identifier }}">{{ region.name }}</a></li>
-				{%- if region.children != None -%}
-					<ul>
-						{{ loop(region.children.itervalues()) }}
-					</ul>
-				{%- endif %}
-			</li>
-		{%- endfor %}
-	</ul>
+{% block body -%}
+<h2>Countries</h2>
+<ul>
+{%- for country in countries.itervalues() %}
+<li><a href="{{ country.mcc }}">{{ country.name }}</a>
+<ul>
+{%- for network in country.networks.itervalues() %}
+<li><a href="{{ country.mcc }}/{{ network.mnc }}">{{ network.name }}</a></li>
+{%- endfor %}
+</ul>
+</li>
+{% endfor -%}
+</ul>
+<hr>
+<h2>Regions</h2>
+<ul>
+{%- for region in regions[1].children.itervalues() recursive %}
+<li>
+<a href="region/{{ region.identifier }}">{{ region.name }}</a> 
+{%- if region.locations|length != 0 %} ({{ region.locations|length }}){% endif %}
+{%- if region.children|length != 0 %}
+<ul>
+{{ loop(region.children.itervalues()) }}
+</ul>
+{%- endif %}
+</li>
+{%- endfor %}
+</ul>
 {% endblock %}
