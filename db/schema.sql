@@ -2,8 +2,6 @@ PRAGMA foreign_keys = ON;
 
 -- See "area_lte" after "network".
 
--- See "area_umts" after "network".
-
 -- See "cell_lte" after "location". TODO
 
 -- See "cell_umts" after "location".
@@ -51,16 +49,6 @@ CREATE TABLE area_lte (
 	tac  INTEGER NOT NULL,
 	name VARCHAR NOT NULL,
 	PRIMARY KEY (mcc, mnc, tac),
-	UNIQUE (mcc, mnc, name),
-	FOREIGN KEY (mcc, mnc) REFERENCES network
-);
-
-CREATE TABLE area_umts (
-	mcc  INTEGER NOT NULL DEFAULT 530,
-	mnc  INTEGER NOT NULL DEFAULT 5,
-	ura  INTEGER NOT NULL,
-	name VARCHAR NOT NULL,
-	PRIMARY KEY (mcc, mnc, ura),
 	UNIQUE (mcc, mnc, name),
 	FOREIGN KEY (mcc, mnc) REFERENCES network
 );
@@ -117,14 +105,13 @@ CREATE TABLE cell_umts (
 	mcc       INTEGER NOT NULL DEFAULT 530,
 	mnc       INTEGER NOT NULL DEFAULT 5,
 	lcid      INTEGER NOT NULL,
-	ura       INTEGER NOT NULL,
+	ura       INTEGER NULL,
 	uarfcn    INTEGER NOT NULL,
 	psc       INTEGER NOT NULL,
 	location  INTEGER,
 	last_seen DATETIME NOT NULL DEFAULT (date('now')), -- TODO default now()
 	PRIMARY KEY (mcc, mnc, lcid),
 	FOREIGN KEY (mcc, mnc) REFERENCES network,
-	FOREIGN KEY (mcc, mnc, ura) REFERENCES area_umts,
 	FOREIGN KEY (mcc, mnc, uarfcn) REFERENCES network_frequency_umts,
 	FOREIGN KEY (mcc, mnc, location) REFERENCES network_location,
 	CHECK (psc BETWEEN 0 AND 511),

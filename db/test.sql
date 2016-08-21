@@ -12,15 +12,6 @@ INSERT INTO country (mcc, name) VALUES (530, "New Zealand");
 
 INSERT INTO network (mnc, name) VALUES (1, "Vodafone");
 INSERT INTO network (mnc, name) VALUES (5, "Spark");
-INSERT INTO network (mnc, name) VALUES (24, "2degrees");
-
-INSERT INTO area_umts (ura, name) VALUES (11000, "Auckland North");
-INSERT INTO area_umts (ura, name) VALUES (13305, "Auckland South");
-INSERT INTO area_umts (ura, name) VALUES (14301, "Auckland East");
-INSERT INTO area_umts (ura, name) VALUES (15301, "Auckland West");
-
-INSERT INTO area_umts (mcc, mnc, ura, name) VALUES (530, 24, 0, "Auckland 0");
-INSERT INTO area_umts (mcc, mnc, ura, name) VALUES (530, 24, 1, "Auckland 1");
 
 INSERT INTO frequency_umts (uarfcn) VALUES (1012); -- 850
 INSERT INTO frequency_umts (uarfcn) VALUES (1037); -- 850
@@ -36,13 +27,9 @@ INSERT INTO frequency_umts (uarfcn) VALUES (10837); -- 2100
 INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 5, 1012);
 INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 5, 1037);
 INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 5, 1062);
-INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 24, 3005);
 INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 5, 10713);
 INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 5, 10738);
 INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 5, 10763);
-INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 24, 10788);
-INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 24, 10813);
-INSERT INTO network_frequency_umts (mcc, mnc, uarfcn) VALUES (530, 24, 10837);
 
 INSERT INTO coordinates_source (id, name) VALUES (1, "Google Maps");
 
@@ -471,68 +458,4 @@ INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (1018
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (1018732, 15301, 10738, 370, NULL, date("2016-07-31"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (1018751, 15301, 10738, 410, NULL, date("2016-07-31"));
 
---
--- 2degrees
---
-
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 67103, 0, 10788, 31, NULL, date("2016-08-13")); -- Samsung Northcote
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 67104, 0, 10788, 39, NULL, date("2016-08-13")); -- Samsung Northcote
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 67105, 0, 10788, 47, NULL, date("2016-08-13")); -- Samsung Northcote
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 70614, 1, 10788, 255, NULL, date("2016-08-13")); -- Ellerslie Racecourse
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 70815, 0, 10788, 435, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 70983, 1, 10788, 392, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71041, 0, 3005, 445, NULL, date("2016-08-13")); -- Greville Road X
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71044, 1, 10788, 437, NULL, date("2016-08-13")); -- Greville Road X
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71083, 1, 10788, 104, NULL, date("2016-08-13")); -- Market Road X
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71107, 0, 3005, 313, NULL, date("2016-08-13")); -- Harbour Bridge South
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71109, 0, 3005, 321, NULL, date("2016-08-13")); -- Harbour Bridge South
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71167, 0, 3005, 128, NULL, date("2016-08-13")); -- Newmarket South
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71224, 0, 10788, 94, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71409, 0, 3005, 88, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71454, 1, 10788, 40, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71483, 1, 10788, 5, NULL, date("2016-08-13")); -- Albany Hilltop
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71484, 1, 10788, 13, NULL, date("2016-08-13")); -- Albany Hilltop
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71494, 1, 10788, 274, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71533, 0, 10788, 142, NULL, date("2016-08-13")); -- Greenlane Interchange
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71535, 0, 10788, 158, NULL, date("2016-08-13")); -- Greenlane Interchange
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71693, 1, 10788, 278, NULL, date("2016-08-13")); -- Harbour Bridge North
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 71694, 1, 10788, 286, NULL, date("2016-08-13")); -- Harbour Bridge North
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 72039, 0, 3005, 238, NULL, date("2016-08-13")); -- K/Queen
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 80553, 1, 10813, 36, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 80593, 1, 10813, 228, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 80595, 1, 10813, 244, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 80784, 1, 10813, 452, NULL, date("2016-08-13")); -- Sunnynook
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 80785, 1, 10813, 460, NULL, date("2016-08-13")); -- Sunnynook
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 80945, 1, 10813, 264, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 80983, 1, 10813, 392, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 80984, 1, 10813, 400, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 81085, 1, 10813, 120, NULL, date("2016-08-13")); -- Newmarket South
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 81283, 1, 10813, 60, NULL, date("2016-08-13")); -- Constellation Station
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 81414, 0, 3005, 88, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 81423, 1, 10813, 265, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 81994, 1, 10813, 423, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 82035, 1, 10813, 146, NULL, date("2016-08-13"));
-
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 589905, 0, 3005, 313, NULL, date("2016-08-13")); -- Manukau Central
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 589906, 0, 10837, 313, NULL, date("2016-08-13")); -- Manukau Central
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 589907, 0, 3005, 321, NULL, date("2016-08-13")); -- Manukau Central
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 589909, 0, 3005, 329, NULL, date("2016-08-13")); -- Manukau Central
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 589917, 0, 3005, 18, NULL, date("2016-08-13")); -- Manukau Exchange
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 589919, 0, 3005, 26, NULL, date("2016-08-13")); -- Manukau Exchange
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 589923, 1, 10788, 26, NULL, date("2016-08-12")); -- Manukau Exchange
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590005, 0, 3005, 409, NULL, date("2016-08-12")); -- Wiri Industrial
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590011, 1, 10788, 409, NULL, date("2016-08-12")); -- Wiri Industrial
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590067, 0, 3005, 162, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590243, 1, 10788, 348, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590047, 0, 3005, 304, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590302, 1, 10788, 317, NULL, date("2016-08-13")); -- Penrose East
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590322, 1, 10788, 283, NULL, date("2016-08-13")); -- Hotonui
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590361, 0, 10788, 108, NULL, date("2016-08-13")); -- Otahuhu Interchange
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590585, 0, 3005, 178, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 590885, 0, 3005, 204, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 591202, 1, 10788, 398, NULL, date("2016-08-13")); -- Ellerslie Commercial
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 591203, 1, 10788, 406, NULL, date("2016-08-13")); -- Ellerslie Commercial
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 591343, 0, 10788, 41, NULL, date("2016-08-13")); -- Sylvia Park Interchange
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 599922, 1, 10813, 18, NULL, date("2016-08-13")); -- Manukau Exchange
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 600072, 1, 10813, 162, NULL, date("2016-08-13"));
-INSERT INTO cell_umts (mcc, mnc, lcid, ura, uarfcn, psc, location, last_seen) VALUES (530, 24, 600362, 0, 3005, 116, NULL, date("2016-08-13")); -- Otahuhu Interchange
+.read 530-24.sql
