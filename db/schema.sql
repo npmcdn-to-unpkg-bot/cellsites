@@ -157,11 +157,13 @@ FROM cell_umts;
 
 -- Depends: location
 CREATE TABLE network_location (
-	mcc      INTEGER NOT NULL DEFAULT 530,
-	mnc      INTEGER NOT NULL DEFAULT 5,
-	location INTEGER NOT NULL,
+	mcc       INTEGER NOT NULL DEFAULT 530,
+	mnc       INTEGER NOT NULL DEFAULT 5,
+	location  INTEGER NOT NULL,
+	reference VARCHAR,
 	PRIMARY KEY (mcc, mnc, location),
 	FOREIGN KEY (mcc, mnc) REFERENCES network
 	FOREIGN KEY (location) REFERENCES location (id)
+	UNIQUE (reference)
 );
 
