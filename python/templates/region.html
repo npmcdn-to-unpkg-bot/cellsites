@@ -15,7 +15,7 @@ map("map","locations.geojson","boundaries.geojson");
 <p>See <a href="./map/">full screen map</a>.</p>
 	<ul>
 		{% for location in region.locations.itervalues() %}
-			<li><a href="/location/{{ location.identifier }}">{{ location.name }}</a></li>
+			<li><a href="/location/{{ location.identity }}">{{ location.name }}</a></li>
 		{% endfor %}
 	</ul>
 {% endblock %}

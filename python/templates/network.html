@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>{{ network.name }} ({{network.country.mcc}}-{{network.mnc}})</h2>
+<h3>Cells</h3>
+<table>
+{% for cell in network.cells %}
+<tr>
+<td class="right">{{ network.cells[cell].identity }}</td>
+<td class="right">{{ network.cells[cell].controller() }}</td>
+<td class="right">{{ network.cells[cell].shortIdentity() }}</td>
+<td class="right">{{ network.cells[cell].frequency }}</td>
+<td class="right">{{ network.cells[cell].scramblingCode }}</td>
+</td>
+{% endfor %}
+</table>
+{% endblock %}
