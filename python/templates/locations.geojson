@@ -4,7 +4,7 @@
 		{% for location in locations.itervalues() %}
 		{
 			"type": "Feature",
-			"id": {{ location.identifier }},
+			"id": {{ location.identity }},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [{{ location.longitude }}, {{ location.latitude }}]

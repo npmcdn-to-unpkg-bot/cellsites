@@ -17,7 +17,7 @@
 <ul>
 {%- for region in regions[1].children.itervalues() recursive %}
 <li>
-<a href="region/{{ region.identifier }}">{{ region.name }}</a> 
+<a href="region/{{ region.identity }}">{{ region.name }}</a> 
 {%- if region.locations|length != 0 %} ({{ region.locations|length }}){% endif %}
 {%- if region.children|length != 0 %}
 <ul>

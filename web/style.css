@@ -4,3 +4,6 @@
 h1, h2, h3 {font-family: sans-serif;}
 code {background: silver;}
 .embeddedmap {height: 25em;}
+table {border-collapse: collapse;}
+table td {border: thin solid gray; padding: 0.3em;}
+table td.right {text-align: right;}

@@ -4,9 +4,15 @@ function map(id, locationsGeoJSON, boundariesGeoJSON) {
 	$.when(
 		$.getJSON(locationsGeoJSON, function(data) {
 			locationsData = data;
+		})
+		.fail(function(jqXHR, textStatus, errorThrown) {
+			alert('getJSON request failed! ' + textStatus);
 		}),
 		$.getJSON(boundariesGeoJSON, function(data) {
 			boundariesData = data;
+		})
+		.fail(function(jqXHR, textStatus, errorThrown) {
+			alert('getJSON request failed! ' + textStatus);
 		})
 	).then(function() {
 		var map = L.map(id);
