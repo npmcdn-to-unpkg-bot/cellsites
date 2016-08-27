@@ -6,10 +6,42 @@
 {% block body %}
 <h2><a href="/region/{{ location.region.id }}">{{ location.region.name }}</a></h2>
 <h3>{{ location.name }}</h3>
+<h4>Map</h4>
 <div class="embeddedmap" id="locationmap"></div>
 <script type="text/javascript">
 var map = L.map('locationmap').setView([{{ location.latitude }}, {{location.longitude }}], 15);
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 L.marker([{{ location.latitude }}, {{location.longitude }}]).addTo(map);
 </script>
+<h4>Cells</h4>
+<table>
+<thead>
+<tr>
+<th><abbr title="Mobile Country Code">MCC</abbr></th>
+<th><abbr title="Mobile Network Code">MNC</abbr></th>
+<th><abbr title="Long Cell Identity">LCID</abbr></th>
+<th><abbr title="Radio Network Controller">RNC</abbr></th>
+<th><abbr title="Cell Identity">CID</abbr></th>
+<th><abbr title="UTRA Absolute Radio Frequency Channel Number">UARFCN</abbr></th>
+<th><abbr title="Primary Scrambling Code">PSC</abbr></th>
+<th>Country</th>
+<th>Network</th>
+</tr>
+</thead>
+<tbody>
+{% for cell in location.cells %}
+<tr>
+<td>{{ cell.network.country.mcc }}</td>
+<td>{{ cell.network.mnc }}</td>
+<td>{{ cell.identity }}</td>
+<td>{{ cell.controller() }}</td>
+<td>{{ cell.shortIdentity() }}</td>
+<td>{{ cell.frequency }}</td>
+<td>{{ cell.scramblingCode }}</td>
+<td>{{ cell.network.country.name }}</td>
+<td><a href="/{{ cell.network.country.mcc }}/{{ cell.network.mnc }}/">{{ cell.network.name }}</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
 {% endblock %}

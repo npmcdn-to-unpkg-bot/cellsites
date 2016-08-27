@@ -7,7 +7,7 @@ import sqlite3
 
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
-from sortedcontainers import SortedDict
+from sortedcontainers import SortedDict, SortedSet
 
 DATABASE = os.path.abspath('../db/cs.db')
 TEMPLATES = os.path.abspath('templates')
@@ -38,7 +38,8 @@ class CellUMTS:
         self.network.cells[self.identity] = self
         self.frequency = frequency
         self.scramblingCode = scramblingCode
-        # TODO add cell to location
+        if self.location != None:
+            self.location.cells.add(self)
     def controller(self):
         return (self.identity >> 16)
     def shortIdentity(self):
@@ -56,6 +57,7 @@ class Country:
 
 class Location:
     """Represents a location."""
+    cells = None
     identity = None
     latitude = None
     longitude = None
@@ -68,6 +70,7 @@ class Location:
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
+        self.cells = SortedSet()
 
 class Network:
     """Represents a mobile network."""

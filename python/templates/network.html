@@ -10,6 +10,12 @@
 <td class="right">{{ network.cells[cell].shortIdentity() }}</td>
 <td class="right">{{ network.cells[cell].frequency }}</td>
 <td class="right">{{ network.cells[cell].scramblingCode }}</td>
+{% if network.cells[cell].location != None %}
+<td><a href="/location/{{ network.cells[cell].location.identity }}/">{{ network.cells[cell].location.name }}</a></td>
+{% else %}
+<td>n/a</td>
+{% endif %}
+</td>
 </td>
 {% endfor %}
 </table>

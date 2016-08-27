@@ -1,9 +1,15 @@
+abbr {border-bottom: thin dotted gray;}
+code {background: silver;}
+h1, h2, h3, h4 {font-family: sans-serif;}
+
+table {border-collapse: collapse;}
+table thead th, table tbody td {padding: 0.3em;}
+table thead th {border: thin solid black;}
+table tbody td {border: thin solid gray;}
+
+div.embeddedmap {height: 25em;}
+table tbody td.right {text-align: right;}
+
 @media (min-width: 768px) {
 	body {margin: 2em auto; max-width: 35em;}
 }
-h1, h2, h3 {font-family: sans-serif;}
-code {background: silver;}
-.embeddedmap {height: 25em;}
-table {border-collapse: collapse;}
-table td {border: thin solid gray; padding: 0.3em;}
-table td.right {text-align: right;}
