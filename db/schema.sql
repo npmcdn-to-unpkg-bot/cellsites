@@ -6,13 +6,6 @@ PRAGMA foreign_keys = ON;
 
 -- See "cell_umts" after "location".
 
-CREATE TABLE coordinates_source (
-	id   INTEGER NOT NULL,
-	name VARCHAR NOT NULL,
-	PRIMARY KEY (id),
-	UNIQUE (name)
-);
-
 CREATE TABLE country (
 	mcc  INTEGER NOT NULL,
 	name VARCHAR NOT NULL,
@@ -89,15 +82,11 @@ CREATE TABLE location (
 	name               VARCHAR NOT NULL,
 	latitude           REAL    NOT NULL,
 	longitude          REAL    NOT NULL,
-	coordinates_source INTEGER NOT NULL,
-	accurate           BOOLEAN NOT NULL DEFAULT 0,
 	PRIMARY KEY (id),
 	UNIQUE (name),
 	FOREIGN KEY (region) REFERENCES region (id),
-	FOREIGN KEY (coordinates_source) REFERENCES coordinates_source (id),
 	CHECK (latitude >= -90 AND latitude <= 90),
-	CHECK (longitude >= -180 AND longitude <= 180),
-	CHECK (accurate IN (0,1))
+	CHECK (longitude >= -180 AND longitude <= 180)
 );
 
 -- Depends: location

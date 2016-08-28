@@ -4,7 +4,7 @@
 <script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
 {% endblock %}
 {% block body %}
-<h2><a href="/region/{{ location.region.id }}">{{ location.region.name }}</a></h2>
+<h2><a href="/region/{{ location.region.identity }}">{{ location.region.name }}</a></h2>
 <h3>{{ location.name }}</h3>
 <h4>Map</h4>
 <div class="embeddedmap" id="locationmap"></div>
@@ -24,7 +24,6 @@ L.marker([{{ location.latitude }}, {{location.longitude }}]).addTo(map);
 <th><abbr title="Cell Identity">CID</abbr></th>
 <th><abbr title="UTRA Absolute Radio Frequency Channel Number">UARFCN</abbr></th>
 <th><abbr title="Primary Scrambling Code">PSC</abbr></th>
-<th>Country</th>
 <th>Network</th>
 </tr>
 </thead>
@@ -35,10 +34,9 @@ L.marker([{{ location.latitude }}, {{location.longitude }}]).addTo(map);
 <td>{{ cell.network.mnc }}</td>
 <td>{{ cell.identity }}</td>
 <td>{{ cell.controller() }}</td>
-<td>{{ cell.shortIdentity() }}</td>
+<td class="right">{{ cell.shortIdentity() }}</td>
 <td>{{ cell.frequency }}</td>
 <td>{{ cell.scramblingCode }}</td>
-<td>{{ cell.network.country.name }}</td>
 <td><a href="/{{ cell.network.country.mcc }}/{{ cell.network.mnc }}/">{{ cell.network.name }}</a></td>
 </tr>
 {% endfor %}
