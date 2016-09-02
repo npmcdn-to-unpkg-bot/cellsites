@@ -5,18 +5,21 @@ PRAGMA foreign_keys = ON;
 
 INSERT INTO country (mcc, name) VALUES (530, "New Zealand");
 
-INSERT INTO network (mnc, name) VALUES (1, "Vodafone");
-
 INSERT INTO frequency_umts (uarfcn) VALUES (1012); -- 850
 INSERT INTO frequency_umts (uarfcn) VALUES (1037); -- 850
 INSERT INTO frequency_umts (uarfcn) VALUES (1062); -- 850
 INSERT INTO frequency_umts (uarfcn) VALUES (3005); -- 900
+INSERT INTO frequency_umts (uarfcn) VALUES (3065); -- 900
+INSERT INTO frequency_umts (uarfcn) VALUES (3086); -- 900
 INSERT INTO frequency_umts (uarfcn) VALUES (10713); -- 2100
 INSERT INTO frequency_umts (uarfcn) VALUES (10738); -- 2100
 INSERT INTO frequency_umts (uarfcn) VALUES (10763); -- 2100
 INSERT INTO frequency_umts (uarfcn) VALUES (10788); -- 2100
 INSERT INTO frequency_umts (uarfcn) VALUES (10813); -- 2100
 INSERT INTO frequency_umts (uarfcn) VALUES (10837); -- 2100
+
+INSERT INTO frequency_lte (earfcn) VALUES (1550); -- 1800
+INSERT INTO frequency_lte (earfcn) VALUES (9310); -- APT 700
 
 INSERT INTO region (id, name) VALUES (1, "World");
 INSERT INTO region (id, name, parent) VALUES (2, "New Zealand", 1);
@@ -103,5 +106,6 @@ INSERT INTO location (id, name, region, latitude, longitude) VALUES (108, "Unive
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (143, "Western Springs", 10, -36.868422, 174.728130);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (37, "Westfield", 15, -36.936130, 174.836669);
 
+.read 530-01.sql
 .read 530-05.sql
 .read 530-24.sql

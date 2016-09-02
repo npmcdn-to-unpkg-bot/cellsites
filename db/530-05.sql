@@ -150,6 +150,7 @@ INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (8847
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (884949, 13305, 1062, 385, NULL, date("2016-07-30"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (884953, 13305, 10738, 393, NULL, date("2016-07-31"));
 
+INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (885037, 13305, 1012, 500, NULL, date("2016-08-14"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (885173, 13305, 1037, 80, NULL, date("2016-07-30"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (885221, 13305, 1062, 210, NULL, date("2016-08-05"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (885822, 13305, 1037, 384, NULL, date("2016-07-30"));
@@ -157,10 +158,6 @@ INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (8858
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (889419, 13305, 1062, 438, NULL, date("2016-07-30"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (889841, 13305, 1062, 46, NULL, date("2016-07-30"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (889843, 13305, 1037, 38, NULL, date("2016-07-30"));
-
---
--- Data for UMTS 530-05-14301
---
 
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (947805, 14301, 1062, 454, 467, date("2016-08-02"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (947806, 14301, 10738, 454, 467, date("2016-08-10"));
@@ -351,3 +348,22 @@ INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (1018
 --INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (1018731, 15301, 10738, 370, NULL, date("2016-07-31"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (1018732, 15301, 10738, 370, NULL, date("2016-07-31"));
 INSERT INTO cell_umts (lcid, ura, uarfcn, psc, location, last_seen) VALUES (1018751, 15301, 10738, 410, NULL, date("2016-07-31"));
+
+INSERT INTO network_frequency_lte (mcc, mnc, earfcn) VALUES (530, 5, 1550);
+INSERT INTO network_frequency_lte (mcc, mnc, earfcn) VALUES (530, 5, 9310);
+
+INSERT INTO area_lte (mcc, mnc, tac, name) VALUES (530, 5, 1501, 'North Island 2');
+INSERT INTO area_lte (mcc, mnc, tac, name) VALUES (530, 5, 4501, 'North Island 1');
+
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 291951, 4501, 9310, 168);
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 291961, 4501, 9310, 169);
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 291971, 4501, 9310, 170);
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 298607, 4501, 9310, 186);
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 298617, 4501, 9310, 187);
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 298627, 4501, 9310, 188);
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 301836, 4501, 9310, 211);
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 301837, 4501, 9310, 212);
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 304505, 4501, 9310, 178);
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 304515, 4501, 9310, 179);
+
+INSERT INTO cell_lte (mcc, mnc, cid, tac, earfcn, pci) VALUES (530, 5, 15106848, 1501, 1550, 25);

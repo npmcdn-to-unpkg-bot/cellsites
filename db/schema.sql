@@ -2,7 +2,7 @@ PRAGMA foreign_keys = ON;
 
 -- See "area_lte" after "network".
 
--- See "cell_lte" after "location". TODO
+-- See "cell_lte" after "location".
 
 -- See "cell_umts" after "location".
 
@@ -46,6 +46,15 @@ CREATE TABLE area_lte (
 	FOREIGN KEY (mcc, mnc) REFERENCES network
 );
 
+CREATE TABLE network_frequency_lte (
+	mcc    INTEGER NOT NULL,
+	mnc    INTEGER NOT NULL,
+	earfcn INTEGER NOT NULL,
+	PRIMARY KEY (mcc, mnc, earfcn),
+	FOREIGN KEY (mcc, mnc) REFERENCES network,
+	FOREIGN KEY (earfcn) REFERENCES frequency_lte
+);
+
 CREATE TABLE network_frequency_umts (
 	mcc    INTEGER NOT NULL DEFAULT 530,
 	mnc    INTEGER NOT NULL DEFAULT 5,
@@ -77,16 +86,34 @@ CREATE TABLE region (
 
 -- Depends: region
 CREATE TABLE location (
-	id                 INTEGER NOT NULL,
-	region             INTEGER NOT NULL,
-	name               VARCHAR NOT NULL,
-	latitude           REAL    NOT NULL,
-	longitude          REAL    NOT NULL,
+	id        INTEGER NOT NULL,
+	region    INTEGER NOT NULL,
+	name      VARCHAR NOT NULL,
+	latitude  REAL    NOT NULL,
+	longitude REAL    NOT NULL,
 	PRIMARY KEY (id),
 	UNIQUE (name),
 	FOREIGN KEY (region) REFERENCES region (id),
 	CHECK (latitude >= -90 AND latitude <= 90),
 	CHECK (longitude >= -180 AND longitude <= 180)
+);
+
+-- Depends: location
+CREATE TABLE cell_lte (
+	mcc       INTEGER  NOT NULL,
+	mnc       INTEGER  NOT NULL,
+	cid       INTEGER  NOT NULL,
+	tac       INTEGER  NOT NULL,
+	earfcn    INTEGER  NOT NULL,
+	pci       INTEGER  NOT NULL,
+	location  INTEGER  NULL,
+	last_seen DATETIME NULL,
+	PRIMARY KEY (mcc, mnc, cid),
+	FOREIGN KEY (mcc, mnc) REFERENCES network,
+	FOREIGN KEY (mcc, mnc, earfcn) REFERENCES network_frequency_lte,
+	FOREIGN KEY (mcc, mnc, location) REFERENCES network_location,
+	CHECK (pci BETWEEN 0 AND 212),
+	CHECK (last_seen BETWEEN date('2000-01-01') AND date('now','localtime'))
 );
 
 -- Depends: location
@@ -98,7 +125,7 @@ CREATE TABLE cell_umts (
 	uarfcn    INTEGER NOT NULL,
 	psc       INTEGER NOT NULL,
 	location  INTEGER,
-	last_seen DATETIME NOT NULL DEFAULT (date('now')), -- TODO default now()
+	last_seen DATETIME NOT NULL,
 	PRIMARY KEY (mcc, mnc, lcid),
 	FOREIGN KEY (mcc, mnc) REFERENCES network,
 	FOREIGN KEY (mcc, mnc, uarfcn) REFERENCES network_frequency_umts,
