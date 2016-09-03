@@ -246,15 +246,15 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES 
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 80984, 10813, 400, NULL, date("2016-08-13"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 80985, 10813, 408, NULL, date("2016-08-21"));
 
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81073, 10813, 56, NULL, date("2016-08-15"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81074, 10813, 64, NULL, date("2016-08-15"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81073, 10813, 56, 578, date("2016-08-15"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81074, 10813, 64, 578, date("2016-08-15"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81083, 10813, 104, 654, date("2016-08-22"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81084, 10813, 112, 654, date("2016-08-15"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81085, 10813, 120, 654, date("2016-08-13"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81113, 10813, 313, NULL, date("2016-08-28"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81114, 10813, 321, NULL, date("2016-08-28"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81123, 10813, 434, NULL, date("2016-08-15"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81125, 10813, 450, NULL, date("2016-08-27"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81123, 10813, 434, 548, date("2016-08-15"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81125, 10813, 450, 548, date("2016-08-27"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81283, 10813, 60, NULL, date("2016-08-13")); -- Constellation Station
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81363, 10813, 193, 456, date("2016-08-15"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81414, 3005, 88, NULL, date("2016-08-13"));
@@ -263,7 +263,7 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES 
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81505, 10813, 216, NULL, date("2016-08-21"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81533, 10813, 142, NULL, date("2016-08-29"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81534, 10813, 158, NULL, date("2016-08-15"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81544, 10813, 42, NULL, date("2016-08-21"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81544, 10813, 42, 286, date("2016-08-21"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81554, 10813, 466, NULL, date("2016-08-29"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81555, 10813, 474, NULL, date("2016-08-29"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 81783, 10813, 58, NULL, date("2016-08-21"));
@@ -367,9 +367,9 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES 
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590019, 3005, 292, NULL, date("2016-08-29"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590022, 3005, 284, NULL, date("2016-09-01"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590023, 10788, 292, NULL, date("2016-09-01"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590025, 3005, 169, NULL, date("2016-09-01"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590029, 3005, 185, NULL, date("2016-08-20"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590031, 10788, 169, NULL, date("2016-08-20"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590025, 3005, 169, 438, date("2016-09-01"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590029, 3005, 185, 438, date("2016-08-20"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590031, 10788, 169, 438, date("2016-08-20"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590039, 3005, 507, NULL, date("2016-08-21"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590041, 10788, 491, NULL, date("2016-08-20")); -- Rx Mangere
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 590043, 10788, 507, NULL, date("2016-08-20")); -- Rx Mangere
@@ -487,9 +487,9 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES 
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 591592, 10788, 14, NULL, date("2016-08-21"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 591593, 10788, 22, NULL, date("2016-08-20"));
 
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 594935, 3005, 25, NULL, date("2016-08-29"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 594939, 3005, 41, NULL, date("2016-08-29"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 594942, 10788, 33, NULL, date("2016-08-30"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 594935, 3005, 25,  295, date("2016-08-29"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 594939, 3005, 41, 295, date("2016-08-29"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 594942, 10788, 33, 295, date("2016-08-30"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 595639, 3005, 133, NULL, date("2016-08-27"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 595643, 10788, 133, NULL, date("2016-08-27"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 595809, 3005, 219, NULL, date("2016-08-27"));
@@ -558,7 +558,7 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES 
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 600643, 10813, 54, NULL, date("2016-08-30"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 600651, 10813, 180, 587, date("2016-08-29"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 600653, 10813, 196, 587, date("2016-08-30"));
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 600661, 10813, 300, NULL, date("2016-08-30"));
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 600661, 10813, 300, 219, date("2016-08-30"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 600662, 10813, 308, NULL, date("2016-08-30"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 600663, 10813, 316, NULL, date("2016-08-30"));
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location, last_seen) VALUES (530, 24, 600681, 10813, 83, NULL, date("2016-08-21"));
