@@ -118,14 +118,14 @@ CREATE TABLE cell_lte (
 
 -- Depends: location
 CREATE TABLE cell_umts (
-	mcc       INTEGER NOT NULL DEFAULT 530,
-	mnc       INTEGER NOT NULL DEFAULT 5,
-	lcid      INTEGER NOT NULL,
-	ura       INTEGER NULL,
-	uarfcn    INTEGER NOT NULL,
-	psc       INTEGER NOT NULL,
-	location  INTEGER,
-	last_seen DATETIME NOT NULL,
+	mcc       INTEGER  NOT NULL DEFAULT 530,
+	mnc       INTEGER  NOT NULL DEFAULT 5,
+	lcid      INTEGER  NOT NULL,
+	ura       INTEGER  NULL,
+	uarfcn    INTEGER  NOT NULL,
+	psc       INTEGER  NOT NULL,
+	location  INTEGER  NULL,
+	last_seen DATETIME NULL,
 	PRIMARY KEY (mcc, mnc, lcid),
 	FOREIGN KEY (mcc, mnc) REFERENCES network,
 	FOREIGN KEY (mcc, mnc, uarfcn) REFERENCES network_frequency_umts,
