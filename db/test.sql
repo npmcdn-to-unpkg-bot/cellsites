@@ -57,14 +57,18 @@ INSERT INTO location (id, name, region, latitude, longitude) VALUES (217, "Tamak
 
 INSERT INTO region (id, name, parent) VALUES (9, "Albert-Eden Local Board", 3);
 
-INSERT INTO location (id, name, region, latitude, longitude) VALUES (578, "Alexandra Park", 9, -36.892279, 174.776591);
-INSERT INTO location (id, name, region, latitude, longitude) VALUES (71, "Balmoral", 9, -36.887910, 174.747474);
-INSERT INTO location (id, name, region, latitude, longitude) VALUES (576, "Balmoral Heights", 9, -36.890232, 174.761397);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (575, "Balmoral and Dominion Roads", 9, -36.887073, 174.746868);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (576, "Balmoral and Mount Eden Roads", 9, -36.890232, 174.761397);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (29, "Boston and Mount Eden Roads", 9, -36.867372, 174.761978);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (568, "Dominion Road and Calgary Street", 9, -36.893523, 174.745142);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (574, "Dominion Road and Ewington Avenue", 9, -36.878423, 174.750013);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (571, "Dominion Road and Tawari Street", 9, -36.871543, 174.752107);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (71, "Dominion Road and Wiremu Street", 9, -36.887910, 174.747474);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (581, "Epsom Commercial", 9, -36.877068, 174.778774);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (654, "Epsom Shops", 9, -36.883273, 174.785318);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (846, "Greenlane", 9, -36.889370, 174.796602);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (24, "Kingsland", 9, -36.868962, 174.752347);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (578, "Manukau Road and Green Lane", 9, -36.892279, 174.776591);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (286, "Morningside", 9, -36.873350, 174.736746);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (105, "Mount Albert Exchange", 9, -36.878070, 174.727111);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (295, "Mount Albert Shops", 9, -36.888264, 174.710816);
