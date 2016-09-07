@@ -59,7 +59,6 @@ INSERT INTO network_location (mcc, mnc, location) VALUES (530, 24, 846);
 
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 66337, 3005, 330, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 66339, 3005, 338, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67019, 3005, 128, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67021, 3005, 136, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67027, 3005, 75, 839);
@@ -69,11 +68,16 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 6
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67032, 10837, 91, 839);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67034, 10788, 83, 839);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67035, 10788, 91, 839);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67037, 3005, 421, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67039, 3005, 429, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67069, 3005, 308, NULL); -- Rx Kingsland/Morningside
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67070, 10837, 308, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67071, 3005, 316, NULL); -- Rx Kingsland
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67072, 10837, 316, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67089, 3005, 399, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67097, 3005, 31, 840);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67099, 3005, 39, 840);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67101, 3005, 47, 840);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67103, 10788, 31, 840);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67104, 10788, 39, 840);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67105, 10788, 47, 840);
@@ -86,7 +90,12 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 6
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67340, 10837, 100, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67344, 10788, 100, NULL); -- Rx Downtown
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67343, 10788, 92, NULL);
-
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67347, 3005, 68, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67349, 3005, 76, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 67351, 3005, 84, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70547, 3005, 36, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70587, 3005, 228, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70591, 3005, 244, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70607, 3005, 247, 270);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70609, 3005, 255, 270);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70611, 3005, 263, 270);
@@ -96,9 +105,11 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 7
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70617, 3005, 361, 294);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70621, 3005, 377, 294);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70623, 10788, 361, 294);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70627, 3005, 362, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70629, 3005, 370, NULL); -- Rx Meadowbank
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70634, 10788, 370, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70635, 10788, 378, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70643, 10788, 319, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70659, 3005, 221, 1);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70661, 3005, 229, 1);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70665, 10788, 229, 1);
@@ -147,7 +158,7 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 7
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70983, 10788, 392, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70984, 10788, 400, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70985, 10788, 408, NULL);
-
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 70999, 3005, 379, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71041, 3005, 445, NULL); -- Greville Road X
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71044, 10788, 437, NULL); -- Greville Road X
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71047, 3005, 60, NULL);
@@ -162,7 +173,6 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 7
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71089, 3005, 232, 575);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71091, 3005, 240, 575);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71099, 3005, 136, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71101, 3005, 144, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71107, 3005, 313, NULL); -- Harbour Bridge South TODO
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71109, 3005, 321, NULL); -- Harbour Bridge South TODO
@@ -179,14 +189,20 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 7
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71171, 3005, 144, 581);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71173, 10788, 128, 581);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71174, 10788, 136, 581);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71201, 3005, 480, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71205, 10788, 480, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71224, 10788, 94, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71237, 3005, 385, NULL); -- St Lukes TODO
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71239, 3005, 393, NULL); -- St Lukes TODO
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71283, 10788, 60, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71357, 3005, 193, 456);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71359, 3005, 201, 456);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71361, 3005, 209, 456);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71363, 10788, 193, 456);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71365, 10788, 209, 456);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71373, 3005, 457, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71389, 3005, 177, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71391, 3005, 185, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71409, 3005, 88, NULL); -- Rx Newmarket
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71414, 10788, 88, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71417, 3005, 265, NULL);
@@ -216,8 +232,11 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 7
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71619, 3005, 345, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71621, 3005, 353, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71625, 10788, 353, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71687, 3005, 278, 457);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71689, 3005, 286, 457);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71693, 10788, 278, 457);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71694, 10788, 286, 457);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71719, 3005, 355, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71727, 3005, 2, 217);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71729, 3005, 506, 217);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71731, 3005, 202, 217);
@@ -232,12 +251,14 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 7
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71819, 3005, 374, NULL); -- Rx Baldwin/Mt Albert
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71821, 3005, 382, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71833, 10788, 310, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71837, 3005, 79, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71841, 3005, 95, NULL); -- Rx Mission Bay
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71857, 3005, 152, 568);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71859, 3005, 160, 568);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71863, 10788, 152, 568);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71864, 10788, 160, 568);
-
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71869, 3005, 448, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71871, 3005, 456, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71911, 3005, 426, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71927, 3005, 175, 576);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71931, 3005, 191, 576);
@@ -247,13 +268,14 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 7
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71971, 3005, 168, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71977, 3005, 482, 574);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71979, 3005, 490, 574);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71991, 3005, 431, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71997, 3005, 151, 845);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 71999, 3005, 159, 845);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72001, 3005, 167, 845);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72003, 10788, 151, 845);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72004, 10788, 159, 845);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72005, 10788, 167, 845);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72031, 3005, 146, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72037, 3005, 230, NULL); -- K/Queen
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72039, 3005, 238, NULL); -- K/Queen
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72043, 10788, 230, NULL); -- K/Queen
@@ -273,12 +295,13 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 7
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72158, 10837, 461, 182);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72162, 10837, 502, 182);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72163, 10788, 461, 182);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72174, 10788, 485, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72177, 3005, 500, NULL); -- Hobson Bay
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72179, 3005, 507, NULL); -- Hobson Bay
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72183, 10788, 500, NULL); -- Hobson Bay
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 72184, 10788, 507, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 73257, 3005, 223, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 73261, 3005, 239, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 73267, 3005, 111, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 73273, 10788, 111, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 73275, 10788, 127, NULL);
@@ -288,16 +311,25 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 7
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 74381, 3005, 196, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 74407, 3005, 400, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 74409, 3005, 408, NULL);
+
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 76343, 10813, 330, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77024, 10813, 128, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77033, 10813, 75, 839);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77035, 10813, 91, 839);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77043, 10813, 421, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77044, 10813, 429, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77094, 10813, 399, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77153, 10813, 427, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77184, 10813, 12, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77213, 10813, 422, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77215, 10813, 438, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77223, 10813, 484, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77224, 10813, 492, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77233, 10813, 462, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77235, 10813, 478, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77343, 10813, 92, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77344, 10813, 100, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 77353, 10813, 68, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80553, 10813, 36, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80593, 10813, 228, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80595, 10813, 244, NULL);
@@ -314,6 +346,7 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 8
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80714, 10813, 496, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80715, 10813, 504, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80773, 10813, 338, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80775, 10813, 354, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80784, 10813, 452, 671);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80785, 10813, 460, 671);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80863, 10813, 289, NULL); -- Rx Grafton
@@ -331,7 +364,9 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 8
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80983, 10813, 392, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80984, 10813, 400, NULL); -- Rx Grafton
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80985, 10813, 408, NULL);
-
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 80993, 10813, 11, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81044, 10813, 437, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81045, 10813, 445, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81073, 10813, 56, 578);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81074, 10813, 64, 578);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81083, 10813, 104, 654);
@@ -341,10 +376,12 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 8
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81114, 10813, 321, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81123, 10813, 434, 548);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81125, 10813, 450, 548);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81224, 10813, 94, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81283, 10813, 60, NULL); -- Constellation Station
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81363, 10813, 193, 456);
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81414, 3005, 88, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81414, 3005, 88, NULL); -- TODO Check Frequency
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81423, 10813, 265, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81484, 10813, 13, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81494, 10813, 274, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81505, 10813, 216, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81533, 10813, 142, 846);
@@ -358,11 +395,12 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 8
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81803, 10813, 127, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81824, 10813, 374, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81833, 10813, 310, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81874, 10813, 448, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81875, 10813, 456, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81953, 10813, 55, 13);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81954, 10813, 63, 13);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81955, 10813, 71, 13);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 81994, 10813, 423, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 82004, 10813, 159, 845);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 82005, 10813, 167, 845);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 82035, 10813, 146, NULL);
@@ -373,6 +411,7 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 8
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 82183, 10813, 500, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 83265, 10813, 239, NULL); -- Red Beach
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 83274, 10813, 119, NULL); -- Orewa
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 83465, 10813, 510, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 84413, 10813, 400, NULL); -- Silverdale Interchange
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 84414, 10813, 408, NULL); -- Silverdale Interchange
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 84463, 10813, 494, NULL); -- Silverdale Shops
@@ -451,7 +490,6 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 5
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 589982, 10788, 355, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 589997, 3005, 376, NULL); -- Papakura South
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 589999, 3005, 384, NULL); -- Papakura South
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590005, 3005, 409, NULL); -- Wiri Industrial
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590009, 3005, 425, NULL); -- Wiri Industrial
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590011, 10788, 409, NULL); -- Wiri Industrial
@@ -483,8 +521,8 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 5
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590151, 10788, 477, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590155, 3005, 107, 683);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590159, 3005, 123, 683);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590163, 10788, 123, 683);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590197, 3005, 64, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590235, 3005, 333, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590237, 3005, 341, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590239, 3005, 349, NULL);
@@ -514,16 +552,23 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 5
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590331, 10788, 227, NULL); -- Favona
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590332, 10788, 235, NULL); -- Favona
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590333, 10788, 243, NULL); -- Favona
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590355, 3005, 108, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590357, 3005, 116, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590361, 10788, 108, NULL); -- Otahuhu Interchange
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590362, 10788, 116, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590399, 3005, 469, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590403, 10788, 469, NULL); -- Rx New Lynn/Fruitvale
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590405, 3005, 261, NULL); -- Avondale
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590407, 3005, 269, NULL); -- Avondale
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590413, 10788, 277, NULL); -- Avondale
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590417, 3005, 221, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590419, 3005, 229, NULL); -- Rx Avondale/New Lynn
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590423, 10788, 229, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590445, 3005, 165, 296);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590449, 3005, 181, 296);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590451, 10788, 165, 296);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590453, 10788, 181, 296);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590469, 3005, 301, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590507, 3005, 164, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590509, 3005, 172, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590555, 3005, 252, NULL);
@@ -531,6 +576,7 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 5
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590567, 3005, 284, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590569, 3005, 292, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590585, 3005, 178, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590591, 10788, 178, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590595, 3005, 381, 163);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590601, 10788, 381, 163);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590602, 10788, 389, 163);
@@ -553,9 +599,12 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 5
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590701, 10788, 487, 627);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590702, 10788, 495, 627);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590703, 10788, 503, 627);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590707, 3005, 447, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590749, 3005, 242, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590771, 10788, 228, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590777, 3005, 379, NULL); -- Rx Otahuhu Stn
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590782, 10788, 379, NULL); -- Rx Otahuhu/Westfield
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590795, 3005, 36, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590815, 3005, 299, NULL); -- Mangere Tidal Rd
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590819, 3005, 315, NULL); -- Mangere Tidal Rd
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590821, 10788, 299, NULL); -- Mangere Tidal Rd
@@ -571,12 +620,13 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 5
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590927, 3005, 43, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590955, 3005, 272, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 590959, 3005, 388, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591095, 3005, 395, NULL); -- Rx Otahuhu Stn
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591101, 10788, 395, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591102, 10788, 403, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591105, 3005, 189, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591107, 3005, 197, NULL); -- Rx Sylvia Park/Panmure
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591111, 10788, 189, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591112, 10788, 197, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591163, 10788, 78, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591197, 3005, 398, NULL); -- Ellerslie Commercial
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591199, 3005, 406, NULL); -- Ellerslie Commercial
@@ -584,6 +634,7 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 5
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591203, 10788, 406, NULL); -- Ellerslie Commercial
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591235, 3005, 198, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591241, 10788, 198, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591335, 3005, 25, 689);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591337, 3005, 33, 689);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591339, 3005, 41, 689);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591341, 10788, 25, 689);
@@ -594,7 +645,6 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 5
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591589, 3005, 22, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591592, 10788, 14, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 591593, 10788, 22, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 594935, 3005, 25,  295);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 594937, 3005, 33,  295);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 594939, 3005, 41, 295);
@@ -642,7 +692,6 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 5
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 599943, 10813, 336, 563);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 599962, 10813, 232, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 599963, 10813, 240, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600011, 10813, 409, NULL); -- Wiri Industrial
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600013, 10813, 425, NULL); -- Wiri Industrial
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600023, 10813, 292, NULL);
@@ -654,11 +703,13 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 6
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600072, 10813, 162, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600073, 10813, 170, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600151, 10813, 477, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600153, 10813, 493, NULL);
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600242, 10813, 341, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600272, 10813, 352, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600273, 10813, 360, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600311, 10813, 444, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600331, 10813, 227, NULL);
-INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600362, 3005, 116, NULL); -- Otahuhu Interchange
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600362, 3005, 116, NULL); -- Otahuhu Interchange TODO Check Frequency
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600403, 10813, 469, NULL); -- Rx New Lynn
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600411, 10813, 261, NULL); -- Avondale TBC
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600412, 10813, 269, NULL);
@@ -681,16 +732,15 @@ INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 6
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600843, 10813, 435, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600941, 10813, 468, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 600942, 10813, 476, NULL);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 601101, 10813, 395, NULL); -- Rx Otahuhu/Westfield
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 601102, 10813, 403, NULL); -- Rx Middlemore/Otahuhu
+INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 601202, 10813, 398, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 601241, 10813, 198, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 604941, 10813, 25, 295);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 604942, 10813, 33, 295);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 604943, 10813, 41, 295);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 605643, 10813, 133, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 605882, 10813, 29, 544);
-
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 606303, 10813, 75, NULL);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 606491, 10813, 290, 205);
 INSERT INTO cell_umts (mcc, mnc, lcid, uarfcn, psc, location) VALUES (530, 24, 606492, 10813, 298, 205);
