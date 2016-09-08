@@ -29,7 +29,6 @@ INSERT INTO region (id, name, parent) VALUES (14, "Howick Local Board", 3);
 INSERT INTO region (id, name, parent) VALUES (15, "Māngere-Ōtāhuhu Local Board", 3);
 INSERT INTO region (id, name, parent) VALUES (17, "Devonport-Takapuna Local Board", 3);
 INSERT INTO region (id, name, parent) VALUES (18, "Kaipātiki Local Board", 3);
-INSERT INTO region (id, name, parent) VALUES (20, "Manurewa Local Board", 3);
 INSERT INTO region (id, name, parent) VALUES (21, "Waitākere Ranges Local Board", 3);
 
 INSERT INTO region (id, name, parent) VALUES (8, "Ōrākei Local Board", 3);
@@ -47,12 +46,15 @@ INSERT INTO location (id, name, region, latitude, longitude) VALUES (18, "Missio
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (4, "Mission Bay Courts", 8, -36.849717, 174.830149);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (8, "Okahu Bay", 8, -36.853086, 174.820591);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (25, "Ōrākei", 8, -36.861977, 174.808480);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (233, "Rarangi Road and Waimarie Street", 8, -36.849150, 174.867820);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (548, "Remuera Shops", 8, -36.880128, 174.812749);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (32, "Remuera Suburban", 8, -36.872856, 174.805023);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (20, "Saint Heliers Bay", 8, -36.850808, 174.857148);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (844, "Saint Heliers Church", 8, -36.867978, 174.845455);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (34, "Saint Heliers Exchange", 8, -36.868518, 174.844849);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (65, "Tāmaki", 8, -36.886187, 174.852043);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (848, "Tamaki Drive near Hobson Bay Marina", 8, -36.851786, 174.796126);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (847, "Tamaki Drive near Orakei Wharf", 8, -36.845273, 174.817439);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (217, "Tamaki Drive and Patteson Avenue", 8, -36.848387, 174.831316);
 
 INSERT INTO region (id, name, parent) VALUES (9, "Albert-Eden Local Board", 3);
@@ -60,6 +62,7 @@ INSERT INTO region (id, name, parent) VALUES (9, "Albert-Eden Local Board", 3);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (575, "Balmoral and Dominion Roads", 9, -36.887073, 174.746868);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (576, "Balmoral and Mount Eden Roads", 9, -36.890232, 174.761397);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (29, "Boston and Mount Eden Roads", 9, -36.867372, 174.761978);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (850, "Central and New North Roads", 9, -36.872431, 174.744155);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (568, "Dominion Road and Calgary Street", 9, -36.893523, 174.745142);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (574, "Dominion Road and Ewington Avenue", 9, -36.878423, 174.750013);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (571, "Dominion Road and Tawari Street", 9, -36.871543, 174.752107);
@@ -76,16 +79,19 @@ INSERT INTO location (id, name, region, latitude, longitude) VALUES (99, "Mount 
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (77, "Mount Eden Shops", 9, -36.877008, 174.750369);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (296, "New North Road and Soljak Place", 9, -36.894913, 174.704354);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (294, "Saint Lukes Road and Jesmond Terrace", 9, -36.876936, 174.726221);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (138, "Saint Lukes Road and Morningside Drive", 9, -36.882994, 174.732761);
 
 INSERT INTO region (id, name, parent) VALUES (10, "Waitematā Local Board", 3);
 
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (152, "Albert Street", 10, -36.847028, 174.763820);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (842, "Beach Road", 10, -36.848580, 174.774187);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (9, "Carlaw Park", 10, -36.852366, 174.776646);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (849, "Curran Street", 10, -36.836284, 174.741523);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (841, "Earle and Parnell Streets", 10, -36.851881, 174.778615);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (845, "Flower and Nikau Streets", 10, -36.865896, 174.760457);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (6, "Grafton", 10, -36.861059, 174.765161);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (302, "Grey Lynn", 10, -36.864912, 174.738109);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (851, "Karangahape Road and Queen Street", 10, -36.858306, 174.760505);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (14, "Khyber Pass Road and Symonds Street", 10, -36.864629, 174.760958);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (7, "Mechanics Bay", 10, -36.850734, 174.782529);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (5, "Newmarket Commercial", 10, -36.867685, 174.775615);
@@ -117,6 +123,7 @@ INSERT INTO location (id, name, region, latitude, longitude) VALUES (692, "Royal
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (689, "Sylvia Park Interchange (2degrees)", 11, -36.919617, 174.842929);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (93, "Sylvia Park Interchange (Spark)", 11, -36.918913, 174.841285);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (94, "Sylvia Park Station", 11, -36.913658, 174.842817);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (853, "Te Apunga Place", 11, -36.925372, 174.849060);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (31, "Wai o Taiki Bay", 11, -36.869594, 174.874355);
 
 INSERT INTO region (id, name, parent) VALUES (13, "Whau Local Board", 3);
@@ -138,15 +145,18 @@ INSERT INTO location (id, name, region, latitude, longitude) VALUES (44, "Papato
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (708, "Puhinui", 16, -36.994783, 174.846394);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (205, "Station Road and Spring Street", 16, -36.976705, 174.848169);
 
-INSERT INTO location (id, name, region, latitude, longitude) VALUES (467, "Devonport", 17, -36.831886, 174.796634);
-INSERT INTO location (id, name, region, latitude, longitude) VALUES (219, "Glen Eden", 21, -36.909378, 174.650855);
+INSERT INTO region (id, name, parent) VALUES (20, "Manurewa Local Board", 3);
+
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (852, "Hobill Avenue and Joval Place", 20, -37.000778, 174.874735);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (438, "Homai", 20, -37.013071, 174.874629);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (563, "Manurewa", 20, -37.020968, 174.892654);
+
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (467, "Devonport", 17, -36.831886, 174.796634);
+INSERT INTO location (id, name, region, latitude, longitude) VALUES (219, "Glen Eden", 21, -36.909378, 174.650855);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (637, "Mount Roskill (2degrees)", 12, -36.904120, 174.741407);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (131, "Mount Roskill (Spark)", 12, -36.903177, 174.741813);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (840, "Northcote Commercial", 18, -36.801319, 174.759855);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (457, "Northcote Point", 18, -36.822607, 174.750730);
-
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (62, "Pakuranga", 14, -36.908692, 174.880720);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (671, "Sunnynook", 17, -36.761516, 174.738655);
 INSERT INTO location (id, name, region, latitude, longitude) VALUES (627, "Three Kings", 12, -36.914628, 174.752935);
